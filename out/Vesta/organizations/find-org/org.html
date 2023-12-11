@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="org.js"></script>
+    <link rel="stylesheet" href="org.css">
+</head>
+
+<body>
+    <div class="header">
+        <nav class="header-nav">
+            <ul>
+                <li><a href="../../home/home.html">home</a></li>
+                <li><a href="../../friends/friends.html">friends</a></li>
+                <li><a href="../../organizations/organizations.html">organizations</a></li>
+                <li><a href="../../notifications/notifications.html">notifications</a></li>
+                <li><a href="../../fundraisers/fundraisers.html">fundraisers</a></li>
+                <li><a href="../../settings/settings.html">settings</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="find-org">
+        <div class="find-org-header">
+            <h1>Find an Organization:</h1>
+            <input type="text" name="org-name" id="org-name" placeholder="Organization Name">
+            <button onclick="findOrg()">Search</button>
+        </div>
+        <div class="find-org-results">
+        </div>
+    </div>
+    <script>init();</script>
+</body>
+</html>
