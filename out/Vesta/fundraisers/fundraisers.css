@@ -52,11 +52,24 @@ li {
     background-color: rgb(32, 12, 80);
 }
 .fundraisers .fundraisers-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding-left: 4em;
     height: fit-content;
     border-bottom: var(--border-width) solid #eee;
     background-color: rgb(32, 12, 80);
     color: #cacaca;
+}
+.fundraisers .fundraisers-header h1{
+    padding-top: 0.25em;
+}
+.fundraisers .fundraisers-header #make-fund{
+    border: var(--border-width) solid #eee;
+    margin: 1.5em;
+    cursor: pointer;
+    padding: 1em;
+    border-radius: 15px;
 }
 .fund {
     display: flex;

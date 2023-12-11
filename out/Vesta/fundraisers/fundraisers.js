@@ -9,3 +9,11 @@ window.onresize = function() {
     let fundraisers = document.querySelector('.fundraisers');
     fundraisers.style.left = header.offsetWidth + 'px';
 };
+
+function reroute(routeIndex){
+    switch(routeIndex){
+        case 1:
+            window.location.href = 'make-fund/fund.html';
+        break;
+    }
+}
