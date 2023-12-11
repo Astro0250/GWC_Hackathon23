@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     min-width: fit-content;
-    width: 20vw;
+    max-width: 20vw;
     height: 100vh;
     margin-right: 0px;
     position: fixed;
