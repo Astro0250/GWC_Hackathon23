@@ -40,7 +40,7 @@ li {
 }
 
 .other-stuff {
-    background-color: greenyellow;
+    background-color: rgb(112, 101, 136);
     position: fixed;
     top: 0px;
     height: 100vh;
@@ -99,15 +99,22 @@ li {
 .fund-header{
     align-self: center;
     font-size: 10px;
-    margin-left: 1em;
+    margin-left: 2em;
+    background-color: rgb(32, 12, 80);
+    padding: 0.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
     color: #cacaca;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 15px;
 }
 
 .fund {
     display: flex;
     flex-direction: row;
     margin: 1em;
-    margin-right: 1.5em;
+    margin-right: 2em;
     padding: 2em;
     border-radius: 15px;
     height: fit-content;
