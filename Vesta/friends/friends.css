@@ -94,3 +94,6 @@ li {
     margin-right: .35em;
     font-size: 15px;
 }
+.active-friends .friend {
+    border-radius: 10px;
+}
