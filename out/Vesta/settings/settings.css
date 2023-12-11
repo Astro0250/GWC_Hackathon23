@@ -52,3 +52,20 @@ li {
     padding: 30px;
     padding-left: 40px;
 }
+
+.privacy-title {
+    font-size: 24pt;
+}
+
+.settings-privacy-content-title {
+    font-size: 16pt;
+}
+
+.settings-privacy-content-item {
+    display: flex;
+}
+
+.settings-choices
+{
+    margin: 20px;
+}
