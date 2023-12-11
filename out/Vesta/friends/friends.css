@@ -45,7 +45,11 @@ li {
     top: 0px;
     height: 100vh;
 }
-
+.active-friends .active-friends-header{ 
+    border-bottom: var(--border-width) solid #eee;
+    text-align: center;
+    margin-bottom: .5em;
+}
 .friends {
     display: flex;
     flex-direction: column;
