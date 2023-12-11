@@ -95,3 +95,49 @@ li {
     margin-right: .35em;
     font-size: 18px;
 }
+
+.fund-header{
+    align-self: center;
+    font-size: 10px;
+    margin-left: 1em;
+    color: #cacaca;
+}
+
+.fund {
+    display: flex;
+    flex-direction: row;
+    margin: 1em;
+    margin-right: 1.5em;
+    padding: 2em;
+    border-radius: 15px;
+    height: fit-content;
+    border-bottom: var(--border-width) solid #eee;
+    background-color: rgb(32, 12, 80);
+}
+
+.fund .pfp {
+    margin-right: 0.5em;
+}
+
+.fund .fund-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.fund .fund-content h1,
+.fund .fund-content p {
+    font-size: 15px;
+    margin: 0px 0px 0px 0px;
+    color: #cacaca;
+}
+.fund .fund-content h1{
+    margin-bottom: 0.1em;
+    font-size: 20px;
+    font-weight: bold;
+}
+.fund .fund-content p{
+    margin-left: .35em;
+    margin-right: .35em;
+    font-size: 15px;
+}
