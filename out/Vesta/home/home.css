@@ -1,0 +1,97 @@
+:root {
+    --back-color: #0b0013;
+    --border-width: 2px;
+    --boder-col: #eee;
+}
+
+body {
+    margin: 0px;
+    background-color: var(--back-color);
+}
+
+.header {
+    float: right;
+    background: #684d7c;
+    display: flex;
+    flex-direction: column;
+    min-width: fit-content;
+    width: 20vw;
+    height: 100vh;
+    margin-right: 0px;
+    position: fixed;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+li {
+    list-style-type: none;
+    padding: 10px;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.other-stuff {
+    background-color: greenyellow;
+    position: fixed;
+    top: 0px;
+    height: 100vh;
+}
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 60vw;
+    min-height: 100vh;
+    max-height: fit-content;
+    border-left: var(--border-width) solid #eee;
+    border-right: var(--border-width) solid #eee;
+    background-color: rgb(32, 12, 80);
+}
+
+.feed-post {
+    display: flex;
+    flex-direction: row;
+    padding: 2em;
+    padding-left: 5em;
+    padding-right: 5em;
+    height: fit-content;
+    border-bottom: var(--border-width) solid #eee;
+    background-color: rgb(32, 12, 80);
+}
+
+.feed-post .pfp {
+    margin-right: 0.5em;
+}
+
+.feed-post .content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.feed-post .content h1,
+.feed-post .content p {
+    font-size: 15px;
+    margin: 0px 0px 0px 0px;
+    color: #cacaca;
+}
+.feed-post .content h1{
+    margin-bottom: 0.1em;
+    font-size: 20px;
+    font-weight: bold;
+}
+.feed-post .content p{
+    margin-left: .35em;
+    margin-right: .35em;
+    font-size: 18px;
+}
