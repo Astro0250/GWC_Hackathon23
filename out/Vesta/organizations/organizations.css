@@ -52,11 +52,34 @@ li {
     background-color: rgb(32, 12, 80);
 }
 .orgs .orgs-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* This will align .my-orgs to the start and .find-org and .make-org to the end */
     padding-left: 3em;
-    height: fit-content;
     border-bottom: var(--border-width) solid #eee;
     background-color: rgb(32, 12, 80);
     color: #cacaca;
+}
+
+.orgs .orgs-header #my-orgs{
+    flex:1;
+    padding-top: 1em;
+    font-size: 30px;
+}
+.orgs .orgs-header span{
+    cursor: pointer;
+}
+.orgs .orgs-header #find-org{
+    padding: 1em;
+    border-radius: 15px;
+    text-align: center;
+    border: var(--border-width) solid #eee;
+}
+.orgs .orgs-header #make-org{
+    padding: 1em;
+    border-radius: 15px;
+    text-align: center;
+    border: var(--border-width) solid #eee;
 }
 .org {
     display: flex;
