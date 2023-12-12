@@ -1,7 +1,7 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -16,27 +16,30 @@ const firebaseConfig = {
     measurementId: "G-PVSNCXGSB6"
 };
 
-let posts = [];
-function gatherData(){
+function getPosts(){
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-  
-    const db = getDatabase(app);
 
-    let index = 1;
-    get(child(ref(db),'Posts/FillerPost'))
-    .then((snapshot) => {
-        let post = [];
-      snapshot.forEach(childSnapshot => {
-          post.push(childSnapshot.val());
+    const db = getFirestore(app);
+
+    getDocs(collection(db, 'posts'))
+        .then((snapshot) => {
+            let posts = [];
+            snapshot.docs.forEach(doc => {
+                posts.push(doc.data());
+            });
+            setPosts(posts);
+        })
+        .catch((error) => {
+            console.log(error.message);
         });
-        setHTMLPosts(post, index);
+    }
+    function setPosts(posts){
+    let index = 1;
+    posts.forEach((post) => {
+        document.getElementById(index).getElementsByClassName('content')[0].getElementsByClassName('username')[0].innerHTML = post['owner'];
+        document.getElementById(index).getElementsByClassName('content')[0].getElementsByClassName('text')[0].innerHTML = post['content'];
         index++;
     });
 }
-function setHTMLPosts(post, index){
-    console.log(post);
-    document.getElementById(index).getElementsByClassName('content')[0].getElementsByClassName('username')[0].innerHTML = post[1];
-    document.getElementById(index).getElementsByClassName('content')[0].getElementsByClassName('text')[0].innerHTML = post[0];
-}
-gatherData();
+getPosts();
