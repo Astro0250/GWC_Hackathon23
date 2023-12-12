@@ -2,7 +2,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -55,6 +55,16 @@ onAuthStateChanged(auth, (user) => {
     accUsername.innerHTML = user.displayName;
     accPFP.src = user.photoURL;
   } else {
-    console.log("not logged in..."); //eventually redirect to sign in
+    window.location.replace("../sign up/signup.html");
   }
+});
+
+document.getElementById("logoutBtn").addEventListener('click',(e) => {
+    signOut(auth)
+    .then(() => {
+        window.location.replace("../sign up/signup.html");
+    })
+    .catch((error) => {
+        console.log(error.message);
+    });
 });
