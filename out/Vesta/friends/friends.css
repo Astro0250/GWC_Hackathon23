@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     min-width: fit-content;
-    width: 20vw;
+    max-width: 20vw;
     height: 100vh;
     margin-right: 0px;
     position: fixed;
@@ -39,13 +39,45 @@ li {
     color: #ffffff;
 }
 
+.friend-actions{
+    height: fit-content;
+    background-color: aqua;
+    position: fixed;
+    top: 78vh;
+    border-top: var(--border-width) solid #eee;;
+}
+.friend-actions #friend-tinder{
+    border: var(--border-width) solid #eee;
+    border-radius: 15px;
+    margin-bottom: .5em;
+    margin-top: .5em;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(32, 12, 80);
+    color: #cacaca;
+}
+.friend-actions #find-friends{
+    border: var(--border-width) solid #eee;
+    border-radius: 15px;
+    margin-bottom: .5em;
+    margin-top: .5em;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(32, 12, 80);
+    color: #cacaca;
+}
+
 .active-friends {
     background-color: greenyellow;
     position: fixed;
     top: 0px;
-    height: 100vh;
+    height: 78vh;
 }
-
+.active-friends .active-friends-header{ 
+    border-bottom: var(--border-width) solid #eee;
+    text-align: center;
+    margin-bottom: .5em;
+}
 .friends {
     display: flex;
     flex-direction: column;

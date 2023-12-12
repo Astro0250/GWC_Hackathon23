@@ -38,8 +38,7 @@ li {
     font-size: 30px;
     color: #ffffff;
 }
-
-.fundraisers {
+.find-org{
     display: flex;
     flex-direction: column;
     position: relative;
@@ -50,61 +49,13 @@ li {
     border-left: var(--border-width) solid #eee;
     border-right: var(--border-width) solid #eee;
     background-color: rgb(32, 12, 80);
+    color: #cacaca;    
 }
-.fundraisers .fundraisers-header{
+.find-org .find-org-header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-left: 4em;
-    height: fit-content;
-    border-bottom: var(--border-width) solid #eee;
-    background-color: rgb(32, 12, 80);
-    color: #cacaca;
-}
-.fundraisers .fundraisers-header h1{
-    padding-top: 0.25em;
-}
-.fundraisers .fundraisers-header #make-fund{
-    border: var(--border-width) solid #eee;
-    margin: 1.5em;
-    cursor: pointer;
     padding: 1em;
-    border-radius: 15px;
-}
-.fund {
-    display: flex;
-    flex-direction: row;
-    padding: 2em;
-    padding-left: 5em;
-    padding-right: 5em;
-    height: fit-content;
+    padding-top: 0px;
     border-bottom: var(--border-width) solid #eee;
-    background-color: rgb(32, 12, 80);
-}
-
-.fund .pfp {
-    margin-right: 0.5em;
-}
-
-.fund .fund-content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.fund .fund-content h1,
-.fund .fund-content p {
-    font-size: 15px;
-    margin: 0px 0px 0px 0px;
-    color: #cacaca;
-}
-.fund .fund-content h1{
-    margin-bottom: 0.1em;
-    font-size: 20px;
-    font-weight: bold;
-}
-.fund .fund-content p{
-    margin-left: .35em;
-    margin-right: .35em;
-    font-size: 18px;
 }

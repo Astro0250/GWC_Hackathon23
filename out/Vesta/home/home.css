@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     min-width: fit-content;
-    width: 20vw;
+    max-width: 20vw;
     height: 100vh;
     margin-right: 0px;
     position: fixed;
@@ -100,6 +100,7 @@ li {
     align-self: center;
     font-size: 10px;
     margin-left: 2em;
+    margin-top: 0.5em;
     background-color: rgb(32, 12, 80);
     padding: 0.5em;
     padding-left: 1.5em;
@@ -113,9 +114,9 @@ li {
 .fund {
     display: flex;
     flex-direction: row;
-    margin: 1em;
+    margin: .75em;
     margin-right: 2em;
-    padding: 2em;
+    padding: 1.5em;
     border-radius: 15px;
     height: fit-content;
     border-bottom: var(--border-width) solid #eee;

@@ -8,7 +8,7 @@ function init() {
     other.style.width = window.innerWidth - header.offsetWidth - feed.offsetWidth + 'px';
 };
 
-window.onresize = function() {
+window.onresize = function () {
     let header = document.querySelector('.header');
     let feed = document.querySelector('.feed');
     let other = document.querySelector('.other-stuff');

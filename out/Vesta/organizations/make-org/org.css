@@ -38,34 +38,30 @@ li {
     font-size: 30px;
     color: #ffffff;
 }
-.settings {
+.make-org{
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 60vw;
+    width: auto;
     min-height: 100vh;
     max-height: fit-content;
+    width: 60vw;
     border-left: var(--border-width) solid #eee;
+    border-right: var(--border-width) solid #eee;
     background-color: rgb(32, 12, 80);
-    color: #eee;
-    box-sizing: border-box;
-    padding: 30px;
-    padding-left: 40px;
+    color: #cacaca;    
 }
-
-.privacy-title {
-    font-size: 24pt;
+.make-org h1{
+    padding: 1em;
+    padding-top: 0px;
+    border-bottom: var(--border-width) solid #eee;
 }
-
-.settings-privacy-content-title {
-    font-size: 16pt;
-}
-
-.settings-privacy-content-item {
+.make-org form{
     display: flex;
+    flex-direction: column;
+    padding: 1em;
+    padding-top: 0px;
 }
-
-.settings-choices
-{
-    margin: 20px;
+.make-org button{
+    margin: 2em;
 }

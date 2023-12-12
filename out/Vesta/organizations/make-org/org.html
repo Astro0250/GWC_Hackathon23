@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="org.js"></script>
+    <link rel="stylesheet" href="org.css">
+</head>
+
+<body>
+    <div class="header">
+        <nav class="header-nav">
+            <ul>
+                <li><a href="../../home/home.html">home</a></li>
+                <li><a href="../../friends/friends.html">friends</a></li>
+                <li><a href="../../organizations/organizations.html">organizations</a></li>
+                <li><a href="../../notifications/notifications.html">notifications</a></li>
+                <li><a href="../../fundraisers/fundraisers.html">fundraisers</a></li>
+                <li><a href="../../settings/settings.html">settings</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="make-org">
+        <div class="make-org-header">
+            <h1>Create an Organization</h1>
+        </div>
+        <div class="make-org-content">
+            <form action="org.php" method="post">
+                <div class="make-org-input">
+                    <h2 for="org-name">Organization Name:</h2>
+                    <input type="text" name="org-name" id="org-name" placeholder="Organization Name">
+                </div>
+                <div class="make-org-input">
+                    <h2 for="org-desc">Organization Description:</h2>
+                    <textarea name="org-desc" id="org-desc" cols="30" rows="10"
+                        placeholder="Organization Description"></textarea>
+                </div>
+                <div class="make-org-input">
+                    <h2 for="org-pfp">Organization Profile Picture:</h2>
+                    <input type="file" name="org-pfp" id="org-pfp">
+                </div>
+                <div class="make-org-input">
+                    <h2 for="org-banner">Organization Banner:</h2>
+                    <input type="file" name="org-banner" id="org-banner">
+                </div>
+                <div class="make-org-input">
+                    <h2 for="org-email">Organization Email:</h2>
+                    <input type="email" name="org-email" id="org-email" placeholder="Organization Email">
+                </div>
+                <div class="make-org-input">
+                    <h2 for="org-room">Organization Room:</h2>
+                    <input type="text" name="org-room" id="org-room" placeholder="Organization Room">
+                </div>
+                <div class="make-org-input">
+                    <h2 for="org-discord">Organization Discord:</h2>
+                    <input type="text" name="org-discord" id="org-discord" placeholder="Organization Discord">
+                </div>
+                <div class="make-org-input">
+                    <h2 for="org-state">Organization Instagram:</h2>
+                    <input type="text" name="org-state" id="org-state" placeholder="Organization State">
+                </div>
+                <div class="make-org-input">
+                    <h2 for="org-website">Organization Website:</h2>
+                    <input type="text" name="org-website" id="org-website" placeholder="Organization Website">
+                </div>
+            </form>
+            <div class="make-org-buttons">
+                <button class="make-org-button" onclick="submit()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <script>init();</script>
+</body>
+</html>
