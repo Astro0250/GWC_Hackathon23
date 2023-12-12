@@ -144,6 +144,7 @@ li {
     border-radius: 15px;
     height: fit-content;
     border-bottom: var(--border-width) solid #eee;
+    border-right: var(--border-width) solid #eee;
     background-color: rgb(32, 12, 80);
 }
 
