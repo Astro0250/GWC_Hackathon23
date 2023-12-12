@@ -45,13 +45,15 @@ function getPosts(){
 }
 getPosts();
 
-function getUserData(uid) {
-    const userData = getDoc(doc(db, "userData", uid));
+async function getUserData(uid) {
+    const docref = doc(db, "userData", uid);
+    const userData = await getDoc(docref);
 
-    if(userData.exists) {
+    if(userData.data() != null) {
         console.log("data exists!");
+        console.log(userData.data());
     } else {
-        console.log("data doesnt exist...");
+        console.log("no data");
     }
 }
 
