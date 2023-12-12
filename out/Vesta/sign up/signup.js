@@ -31,7 +31,7 @@ getRedirectResult(auth)
                 name: user.displayName
             };
             setDoc(doc(db, "users", user.uid), data);
-            window.location.replace("../intrests/intrests.html");
+            setTimeout(() => {  window.location.replace("../intrests/intrests.html"); }, 500);
         } else {
             window.location.replace("../home/home.html");
         }
