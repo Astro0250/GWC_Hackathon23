@@ -2,6 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 //import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, getAdditionalUserInfo } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore, setDoc, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -19,6 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider(app);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 getRedirectResult(auth)
     .then((result) => {
@@ -27,7 +29,19 @@ getRedirectResult(auth)
         const token = credential.accessToken;
 
         const user = result.user;
-        getAdditionalUserInfo(result).isNewUser ? window.location.replace("../intrests/intrests.html") : window.location.replace("../home/home.html");
+        if(getAdditionalUserInfo(result).isNewUser) {
+            if(!userDataExists(user.uid))
+            {
+                const data = {
+                    interests: ["sus", "baka"]
+                };
+                setDoc(doc(db, "users", user.uid), data);
+            }
+
+            //window.location.replace("../intrests/intrests.html")
+        } else {
+            window.location.replace("../home/home.html");
+        }
     }).catch((error) => {
         console.log(error.message);
     });
@@ -35,3 +49,10 @@ getRedirectResult(auth)
 document.getElementById("googleBtn").addEventListener('click',(e) => {
     signInWithRedirect(auth, provider);
   });
+
+async function userDataExists(uid) {
+    const docref = doc(db, "users", uid);
+    const userData = await getDoc(docref);
+
+    return userData.data() != null;
+}

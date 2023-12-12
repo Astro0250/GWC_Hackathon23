@@ -46,7 +46,7 @@ function getPosts(){
 getPosts();
 
 async function getUserData(uid) {
-    const docref = doc(db, "userData", uid);
+    const docref = doc(db, "users", uid);
     const userData = await getDoc(docref);
 
     if(userData.data() != null) {
