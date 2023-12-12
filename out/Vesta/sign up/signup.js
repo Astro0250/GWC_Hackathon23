@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 //import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithRedirect, getRedirectResult, getAdditionalUserInfo } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -27,9 +27,7 @@ getRedirectResult(auth)
         const token = credential.accessToken;
 
         const user = result.user;
-        // IdP data available using getAdditionalUserInfo(result)
-
-        window.location.replace("../home/home.html");
+        getAdditionalUserInfo(result).isNewUser ? window.location.replace("../intrests/intrests.html") : window.location.replace("../home/home.html");
     }).catch((error) => {
         console.log(error.message);
     });
