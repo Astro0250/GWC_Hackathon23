@@ -19,6 +19,7 @@ body {
     height: 100vh;
     margin-right: 0px;
     position: fixed;
+    justify-content: space-between;
 }
 
 ul {
@@ -44,6 +45,27 @@ li {
     position: fixed;
     top: 0px;
     height: 100vh;
+}
+
+.account-info {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.account-info-id {
+    display: flex;
+}
+
+.account-info-id p {
+    margin-left: 10px;
+}
+
+.account-info-pfp {
+    width: 50px;
+    height: 50px;
 }
 
 .feed {
