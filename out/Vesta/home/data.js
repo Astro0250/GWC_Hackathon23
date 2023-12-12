@@ -1,7 +1,7 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, collection, getDocs, getDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 // Your web app's Firebase configuration
@@ -17,11 +17,11 @@ const firebaseConfig = {
     measurementId: "G-PVSNCXGSB6"
 };
 
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 function getPosts(){
     // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-
-    const db = getFirestore(app);
 
     getDocs(collection(db, 'posts'))
         .then((snapshot) => {
@@ -45,12 +45,22 @@ function getPosts(){
 }
 getPosts();
 
+function getUserData(uid) {
+    const userData = getDoc(doc(db, "userData", uid));
+
+    if(userData.exists) {
+        console.log("data exists!");
+    } else {
+        console.log("data doesnt exist...");
+    }
+}
+
 const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // https://firebase.google.com/docs/reference/js/auth.user
     const uid = user.uid;
-    console.log("logged in!");
+    getUserData(uid);
 
     accUsername.innerHTML = user.displayName;
     accPFP.src = user.photoURL;
