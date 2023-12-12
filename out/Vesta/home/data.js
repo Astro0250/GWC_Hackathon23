@@ -51,6 +51,9 @@ onAuthStateChanged(auth, (user) => {
     // https://firebase.google.com/docs/reference/js/auth.user
     const uid = user.uid;
     console.log("logged in!");
+
+    accUsername.innerHTML = user.displayName;
+    accPFP.src = user.photoURL;
   } else {
     console.log("not logged in..."); //eventually redirect to sign in
   }

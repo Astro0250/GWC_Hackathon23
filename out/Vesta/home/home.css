@@ -57,6 +57,7 @@ li {
 
 .account-info-id {
     display: flex;
+    margin-bottom: 10px;
 }
 
 .account-info-id p {
@@ -66,6 +67,7 @@ li {
 .account-info-pfp {
     width: 50px;
     height: 50px;
+    border-radius: 15px;
 }
 
 .feed {
