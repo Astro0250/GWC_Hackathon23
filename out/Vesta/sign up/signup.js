@@ -24,21 +24,13 @@ const db = getFirestore(app);
 
 getRedirectResult(auth)
     .then((result) => {
-        // This gives you a Google Access Token. You can use it to access Google APIs.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-
         const user = result.user;
-        if(getAdditionalUserInfo(result).isNewUser) {
-            if(!userDataExists(user.uid))
-            {
-                const data = {
-                    interests: ["sus", "baka"]
-                };
-                addDoc(doc(db, "users", user.uid), data);
-            }
-
-            //window.location.replace("../intrests/intrests.html")
+        if (getAdditionalUserInfo(result).isNewUser) {
+            const data = {
+                interests: [user.email]
+            };
+            setDoc(doc(db, "users", user.uid), data);
+            window.location.replace("../intrests/intrests.html");
         } else {
             window.location.replace("../home/home.html");
         }
@@ -46,13 +38,6 @@ getRedirectResult(auth)
         console.log(error.message);
     });
 
-document.getElementById("googleBtn").addEventListener('click',(e) => {
+document.getElementById("googleBtn").addEventListener('click', (e) => {
     signInWithRedirect(auth, provider);
-  });
-
-async function userDataExists(uid) {
-    const docref = doc(db, "users", uid);
-    const userData = await getDoc(docref);
-
-    return userData.data() != null;
-}
+});
