@@ -27,7 +27,8 @@ getRedirectResult(auth)
         const user = result.user;
         if (getAdditionalUserInfo(result).isNewUser) {
             const data = {
-                interests: [user.email]
+                interests: [],
+                name: user.displayName,
             };
             setDoc(doc(db, "users", user.uid), data);
             window.location.replace("../intrests/intrests.html");

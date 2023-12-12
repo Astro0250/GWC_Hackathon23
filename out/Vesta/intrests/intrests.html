@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interests</title>
+    <link rel="stylesheet" type="text/css" href="intrests.css">
+</head>
+<body>
+    <table>
+        <thead>
+            <tr class="headers">
+                <th class="header-selected" onclick="swapTopic('sports');">Sports</th>
+                <th class="header-not-selected" onclick="swapTopic('music');">Music</th>
+                <th class="header-not-selected" onclick="swapTopic('movies');">Movies</th>
+                <th class="header-not-selected" onclick="swapTopic('other')">Other</th>
+            </tr>
+        </thead>
+        <tbody class="Interest-Container" id="Sports Interests" style="display: static;">
+            <tr>
+                <td class="Interest" id="1"  onclick="updateInterests(1, 'sports');">Soccer</td>
+                <td class="Interest" id="2" onclick="updateInterests(2, 'sports');">Football</td>
+                <td class="Interest" id="3" onclick="updateInterests(3, 'sports');">Basketball</td>
+                <td class="Interest" id="4" onclick="updateInterests(4, 'sports');">Baseball</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="5" onclick="updateInterests(5, 'sports');">Hockey</td>
+                <td class="Interest" id="6" onclick="updateInterests(6, 'sports');">Tennis</td>
+                <td class="Interest" id="7" onclick="updateInterests(7, 'sports');">Golf</td>
+                <td class="Interest" id="8" onclick="updateInterests(8, 'sports');">Volleyball</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="9" onclick="updateInterests(9, 'sports');">Lacrosse</td>
+                <td class="Interest" id="10" onclick="updateInterests(10, 'sports');">Swimming</td>
+                <td class="Interest" id="11" onclick="updateInterests(11, 'sports');">Track</td>
+                <td class="Interest" id="12" onclick="updateInterests(12, 'sports');">Cross Country</td>
+            </tr>
+        </tbody>
+        <tbody class="Interest-Container" id="Music Interests" style="display: none;">
+            <tr>
+                <td class="Interest" id="1" onclick="updateInterests(1, 'music');">Rock</td>
+                <td class="Interest" id="2" onclick="updateInterests(2, 'music');">Pop</td>
+                <td class="Interest" id="3" onclick="updateInterests(3, 'music');">Country</td>
+                <td class="Interest" id="4" onclick="updateInterests(4, 'music');">Rap</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="5" onclick="updateInterests(5, 'music');">Hip Hop</td>
+                <td class="Interest" id="6" onclick="updateInterests(6, 'music');">R&B</td>
+                <td class="Interest" id="7" onclick="updateInterests(7, 'music');">Classical</td>
+                <td class="Interest" id="8" onclick="updateInterests(8, 'music');">Jazz</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="9" onclick="updateInterests(9, 'music');">Electronic</td>
+                <td class="Interest" id="10" onclick="updateInterests(10, 'music');">Reggae</td>
+                <td class="Interest" id="11" onclick="updateInterests(11, 'music');">Folk</td>
+                <td class="Interest" id="12" onclick="updateInterests(12, 'music');">Indie</td>
+            </tr>
+        </tbody>
+        <tbody class="Interest-Container" id="Movies Interests" style="display: none;">
+            <tr>
+                <td class="Interest" id="1" onclick="updateInterests(1, 'movies');">Action</td>
+                <td class="Interest" id="2" onclick="updateInterests(2, 'movies');">Comedy</td>
+                <td class="Interest" id="3" onclick="updateInterests(3, 'movies');">Drama</td>
+                <td class="Interest" id="4" onclick="updateInterests(4, 'movies');">Horror</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="5" onclick="updateInterests(5, 'movies');">Romance</td>
+                <td class="Interest" id="6" onclick="updateInterests(6, 'movies');">Sci-Fi</td>
+                <td class="Interest" id="7" onclick="updateInterests(7, 'movies');">Thriller</td>
+                <td class="Interest" id="8" onclick="updateInterests(8, 'movies');">Western</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="9" onclick="updateInterests(9, 'movies');">Documentary</td>
+                <td class="Interest" id="10" onclick="updateInterests(10, 'movies');">Musical</td>
+                <td class="Interest" id="11" onclick="updateInterests(11, 'movies');">War</td>
+                <td class="Interest" id="12" onclick="updateInterests(12, 'movies');">Animation</td>
+            </tr>
+        </tbody>
+        <tbody class="Interest-Container" id="Other Interests" style="display: none;">
+            <tr>
+                <td class="Interest" id="1" onclick="updateInterests(1, 'other');">Art</td>
+                <td class="Interest" id="2" onclick="updateInterests(2, 'other');">Books</td>
+                <td class="Interest" id="3" onclick="updateInterests(3, 'other');">Cooking</td>
+                <td class="Interest" id="4" onclick="updateInterests(4, 'other');">Dancing</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="5" onclick="updateInterests(5, 'other');">Fashion</td>
+                <td class="Interest" id="6" onclick="updateInterests(6, 'other');">Fitness</td>
+                <td class="Interest" id="7" onclick="updateInterests(7, 'other');">Gaming</td>
+                <td class="Interest" id="8" onclick="updateInterests(8, 'other');">Hiking</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="9" onclick="updateInterests(9, 'other');">Photography</td>
+                <td class="Interest" id="10" onclick="updateInterests(10, 'other');">Politics</td>
+                <td class="Interest" id="11" onclick="updateInterests(11, 'other');">Religion</td>
+                <td class="Interest" id="12" onclick="updateInterests(12, 'other');">Traveling</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="intrests.js"></script>
+    <script type="module" src="intrestModule.js"></script>
+</body>
+</html>
+
