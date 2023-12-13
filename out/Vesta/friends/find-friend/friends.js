@@ -10,6 +10,7 @@ window.onresize = function() {
     orgs.style.left = header.offsetWidth + 'px';
 };
 
-function findOrg(){
+function findOrg()
+{
 
 }

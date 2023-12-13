@@ -27,11 +27,16 @@ getRedirectResult(auth)
         const user = result.user;
         if (getAdditionalUserInfo(result).isNewUser) {
             const data = {
+                catergories: new Map(), //how do u make maps
+                clubs: [],
+                friends: [],
                 interests: [],
                 name: user.displayName,
+                profileurl: user.photoURL,
+                settings: new Map()
             };
             setDoc(doc(db, "users", user.uid), data);
-            window.location.replace("../interests/interests.html");
+            setTimeout(() => {  window.location.replace("../intrests/intrests.html"); }, 500);
         } else {
             window.location.replace("../home/home.html");
         }

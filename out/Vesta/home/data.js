@@ -1,7 +1,7 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, getDocs, getDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, collection, getDocs, getDoc, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 // Your web app's Firebase configuration
@@ -20,6 +20,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+const sample = document.querySelector("#samplePost")
+
 function getPosts(){
     // Initialize Firebase
 
@@ -29,6 +31,7 @@ function getPosts(){
             snapshot.docs.forEach(doc => {
                 posts.push(doc.data());
             });
+            console.log(posts);
             setPosts(posts);
         })
         .catch((error) => {
@@ -36,11 +39,15 @@ function getPosts(){
         });
     }
     function setPosts(posts){
-    let index = 1;
     posts.forEach((post) => {
-        document.getElementById(index).getElementsByClassName('content')[0].getElementsByClassName('username')[0].innerHTML = post['owner'];
-        document.getElementById(index).getElementsByClassName('content')[0].getElementsByClassName('text')[0].innerHTML = post['content'];
-        index++;
+        let clone = sample.cloneNode(true);
+        document.getElementById("feed").append(clone);
+        clone.getElementsByClassName('pfp')[0].getElementsByClassName("account-info-pfp")[0].src = post['pfp'];
+        clone.getElementsByClassName('content')[0].getElementsByClassName('post-header')[0].getElementsByClassName('username')[0].innerHTML = post['owner'];
+        clone.getElementsByClassName('content')[0].getElementsByClassName('text')[0].innerHTML = post['content'];
+        const date = new Date(post['timestamp']);
+        clone.getElementsByClassName('content')[0].getElementsByClassName('post-header')[0].getElementsByClassName('date')[0].innerHTML = `${new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'long', day: 'numeric'}).format(date)} at ${new Intl.DateTimeFormat('en-US', {hour: 'numeric', minute: 'numeric'}).format(date)}`;
+        // there has to be a better way to do this this is atrocious
     });
 }
 getPosts();
@@ -58,12 +65,14 @@ async function getUserData(uid) {
 }
 
 const auth = getAuth();
+let currentUser = null;
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // https://firebase.google.com/docs/reference/js/auth.user
     const uid = user.uid;
+    currentUser = user;
     getUserData(uid);
-
+    //localStorage.set("userID", uid);
     accUsername.innerHTML = user.displayName;
     accPFP.src = user.photoURL;
   } else {
@@ -79,4 +88,16 @@ document.getElementById("logoutBtn").addEventListener('click',(e) => {
     .catch((error) => {
         console.log(error.message);
     });
+});
+
+document.getElementById("postBtn").addEventListener('click', (e) => {
+    const data = {
+        content: document.getElementById("postContent").value,
+        owner: currentUser.displayName,
+        pfp: currentUser.photoURL,
+        timestamp: Date.now(),
+        userid: currentUser.uid
+    };
+    setDoc(doc(db, "posts", `${Date.now()}`), data);
+    postOverlay.style.display = "none";
 });
