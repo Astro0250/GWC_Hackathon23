@@ -1,7 +1,7 @@
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, getDocs, getDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, collection, getDocs, getDoc, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 // Your web app's Firebase configuration
@@ -58,10 +58,12 @@ async function getUserData(uid) {
 }
 
 const auth = getAuth();
+let currentUser = null;
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // https://firebase.google.com/docs/reference/js/auth.user
     const uid = user.uid;
+    currentUser = user;
     getUserData(uid);
 
     accUsername.innerHTML = user.displayName;
@@ -79,4 +81,15 @@ document.getElementById("logoutBtn").addEventListener('click',(e) => {
     .catch((error) => {
         console.log(error.message);
     });
+});
+
+document.getElementById("postBtn").addEventListener('click', (e) => {
+    const data = {
+        content: document.getElementById("postContent").value,
+        owner: currentUser.displayName,
+        timestamp: Date.now(),
+        userid: currentUser.uid
+    };
+    setDoc(doc(db, "posts", "idkman"), data);
+    postOverlay.style.display = "none";
 });
