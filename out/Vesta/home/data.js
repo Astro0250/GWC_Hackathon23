@@ -45,9 +45,9 @@ function getPosts(){
         clone.getElementsByClassName('pfp')[0].getElementsByClassName("account-info-pfp")[0].src = post['pfp'];
         clone.getElementsByClassName('content')[0].getElementsByClassName('post-header')[0].getElementsByClassName('username')[0].innerHTML = post['owner'];
         clone.getElementsByClassName('content')[0].getElementsByClassName('text')[0].innerHTML = post['content'];
-        // document.getElementById(index).getElementsByClassName('content')[0].getElementsByClassName('username')[0].innerHTML = post['owner'];
-        // document.getElementById(index).getElementsByClassName('content')[0].getElementsByClassName('text')[0].innerHTML = post['content'];
-        // index++;
+        const date = new Date(post['timestamp']);
+        clone.getElementsByClassName('content')[0].getElementsByClassName('post-header')[0].getElementsByClassName('date')[0].innerHTML = `${new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'long', day: 'numeric'}).format(date)} at ${date.getHours()}:${date.getMinutes()}`;
+        // there has to be a better way to do this this is atrocious
     });
 }
 getPosts();
@@ -98,6 +98,6 @@ document.getElementById("postBtn").addEventListener('click', (e) => {
         timestamp: Date.now(),
         userid: currentUser.uid
     };
-    setDoc(doc(db, "posts", "idkman"), data);
+    setDoc(doc(db, "posts", `${Date.now()}`), data);
     postOverlay.style.display = "none";
 });
