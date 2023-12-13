@@ -37,10 +37,12 @@ function swapTopic(topic) {
 }
 
 function updateInterests(interest, topic) {
-    if (userInterests[topic].includes(interest)) {
-        userInterests[topic].splice(userInterests[topic].indexOf(interest));
+    if (userInterests[topic].includes(interest.innerHTML)) {
+        userInterests[topic].splice(userInterests[topic].indexOf(interest.innerHTML));
+        interest.className = "Interest-notSelected";
     } else {
-        userInterests[topic].push(interest);
+        userInterests[topic].push(interest.innerHTML);
+        interest.className = "Interest-Selected";
     }
 }
 
