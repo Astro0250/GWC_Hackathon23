@@ -16,7 +16,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const provider = new GoogleAuthProvider(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
@@ -31,6 +30,7 @@ function sendToDatabase(interestsArray) {
     setDoc(doc(db, "users", currentUser.uid), {
         "interests": interestsArray
     }, {merge: true});
+    reroute();
 }
 
 document.getElementById("submit-button").addEventListener("click", function () {
@@ -48,4 +48,8 @@ function submitInterests() {
     }
     console.log(interestsArray);
     sendToDatabase(interestsArray);
+}
+
+function reroute() {
+    window.location.replace("../home/home.html");
 }

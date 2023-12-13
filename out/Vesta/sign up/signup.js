@@ -23,20 +23,33 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 getRedirectResult(auth)
-    .then((result) => {
-        const user = result.user;
-        if (getAdditionalUserInfo(result).isNewUser) {
+.then((result) => {
+    const user = result.user;
+    if (getAdditionalUserInfo(result).isNewUser) {
+            document.getElementById("googleBtn").style.display = "none";
             const data = {
-                catergories: new Map(), //how do u make maps
+                catergories: {
+                    academic:0.5,
+                    art:0.5,
+                    craft:0.5,
+                    games:0.5,
+                    social:0.5,
+                    sport:0.5,
+                    tech:0.5
+                },
                 clubs: [],
                 friends: [],
                 interests: [],
                 name: user.displayName,
                 profileurl: user.photoURL,
-                settings: new Map()
+                settings: {
+                    notifications: null,
+                    privacy: null,
+                    theme: null
+                }
             };
             setDoc(doc(db, "users", user.uid), data);
-            setTimeout(() => {  window.location.replace("../intrests/intrests.html"); }, 500);
+            setTimeout(() => {  window.location.replace("../interests/interests.html"); }, 500);
         } else {
             window.location.replace("../home/home.html");
         }
