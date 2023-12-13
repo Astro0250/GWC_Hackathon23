@@ -72,7 +72,7 @@ onAuthStateChanged(auth, (user) => {
     const uid = user.uid;
     currentUser = user;
     getUserData(uid);
-    localStorage.set("userID", uid);
+    //localStorage.set("userID", uid);
     accUsername.innerHTML = user.displayName;
     accPFP.src = user.photoURL;
   } else {

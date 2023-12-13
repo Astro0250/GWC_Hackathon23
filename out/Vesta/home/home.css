@@ -173,6 +173,7 @@ li {
 
 .fund .fund-content h1,
 .fund .fund-content p {
+    margin: 0 0 0 0;
     font-size: 15px;
     color: #cacaca;
 }
