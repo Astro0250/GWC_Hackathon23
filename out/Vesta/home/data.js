@@ -75,6 +75,7 @@ onAuthStateChanged(auth, (user) => {
     //localStorage.set("userID", uid);
     accUsername.innerHTML = user.displayName;
     accPFP.src = user.photoURL;
+    sessionStorage.setItem("userID", uid);
   } else {
     window.location.replace("../sign up/signup.html");
   }
