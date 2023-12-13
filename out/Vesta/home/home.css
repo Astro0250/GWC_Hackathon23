@@ -101,23 +101,36 @@ li {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    color: #cacaca;
+    width: 100%;
 }
 
-.feed-post .content h1,
-.feed-post .content p {
-    font-size: 15px;
-    margin: 0px 0px 0px 0px;
-    color: #cacaca;
-}
 .feed-post .content h1{
     margin-bottom: 0.1em;
     font-size: 20px;
     font-weight: bold;
 }
-.feed-post .content p{
-    margin-left: .35em;
-    margin-right: .35em;
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.date {
+    font-size: 10pt;
+    margin: 5px 0 0 0;
+    color: #9a9a9a;
+}
+
+.text {
     font-size: 18px;
+    margin: 0 5px 0 5px;
+}
+
+.username {
+    font-size: 20px;
+    margin: 0px;
 }
 
 .fund-header{
@@ -161,7 +174,6 @@ li {
 .fund .fund-content h1,
 .fund .fund-content p {
     font-size: 15px;
-    margin: 0px 0px 0px 0px;
     color: #cacaca;
 }
 .fund .fund-content h1{

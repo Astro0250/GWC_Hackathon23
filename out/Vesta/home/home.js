@@ -19,6 +19,7 @@ window.onresize = function () {
 };
 
 document.getElementById("createPostBtn").addEventListener('click', (e) => {
+    document.getElementById("postContent").value = "";
     postOverlay.style.display = "block";
 });
 

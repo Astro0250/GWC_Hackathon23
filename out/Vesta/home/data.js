@@ -20,6 +20,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+const sample = document.querySelector("#samplePost")
+
 function getPosts(){
     // Initialize Firebase
 
@@ -29,6 +31,7 @@ function getPosts(){
             snapshot.docs.forEach(doc => {
                 posts.push(doc.data());
             });
+            console.log(posts);
             setPosts(posts);
         })
         .catch((error) => {
@@ -36,11 +39,15 @@ function getPosts(){
         });
     }
     function setPosts(posts){
-    let index = 1;
     posts.forEach((post) => {
-        document.getElementById(index).getElementsByClassName('content')[0].getElementsByClassName('username')[0].innerHTML = post['owner'];
-        document.getElementById(index).getElementsByClassName('content')[0].getElementsByClassName('text')[0].innerHTML = post['content'];
-        index++;
+        let clone = sample.cloneNode(true);
+        document.getElementById("feed").append(clone);
+        clone.getElementsByClassName('pfp')[0].getElementsByClassName("account-info-pfp")[0].src = post['pfp'];
+        clone.getElementsByClassName('content')[0].getElementsByClassName('post-header')[0].getElementsByClassName('username')[0].innerHTML = post['owner'];
+        clone.getElementsByClassName('content')[0].getElementsByClassName('text')[0].innerHTML = post['content'];
+        // document.getElementById(index).getElementsByClassName('content')[0].getElementsByClassName('username')[0].innerHTML = post['owner'];
+        // document.getElementById(index).getElementsByClassName('content')[0].getElementsByClassName('text')[0].innerHTML = post['content'];
+        // index++;
     });
 }
 getPosts();
@@ -87,6 +94,7 @@ document.getElementById("postBtn").addEventListener('click', (e) => {
     const data = {
         content: document.getElementById("postContent").value,
         owner: currentUser.displayName,
+        pfp: currentUser.photoURL,
         timestamp: Date.now(),
         userid: currentUser.uid
     };
