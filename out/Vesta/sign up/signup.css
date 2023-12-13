@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
 body {
-    background-color: rgb(112, 101, 136);
+    /* background-image: url("../assets/back.png"); */
+    background-size: cover;
+    background-repeat: no-repeat;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
+    font-family: 'PT Sans', sans-serif;
 }
 
 .content {
-    background-color: #684d7c;
+    /* box-shadow: 0 0 50px rgb(0, 0, 0); */
+    background-color: #B5E2FA;
     width: 60vw;
     height: 80vh;
     display: flex;
@@ -36,12 +42,20 @@ body {
     width: 40%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
+    justify-content: flex-start;
+    height: 40%;
 }
 
 .webname h1 {
-    font-size: 36pt;
+    /* font-style: italic; */
+    font-size: 120pt;
+    margin: 0 20px 0 0;
+}
+
+.webname p {
     margin: 0;
+    margin: 0 20px 0 0;
 }
 
 .vertical
