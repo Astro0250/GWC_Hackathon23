@@ -46,7 +46,7 @@ function getPosts(){
         clone.getElementsByClassName('content')[0].getElementsByClassName('post-header')[0].getElementsByClassName('username')[0].innerHTML = post['owner'];
         clone.getElementsByClassName('content')[0].getElementsByClassName('text')[0].innerHTML = post['content'];
         const date = new Date(post['timestamp']);
-        clone.getElementsByClassName('content')[0].getElementsByClassName('post-header')[0].getElementsByClassName('date')[0].innerHTML = `${new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'long', day: 'numeric'}).format(date)} at ${date.getHours()}:${date.getMinutes()}`;
+        clone.getElementsByClassName('content')[0].getElementsByClassName('post-header')[0].getElementsByClassName('date')[0].innerHTML = `${new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'long', day: 'numeric'}).format(date)} at ${new Intl.DateTimeFormat('en-US', {hour: 'numeric', minute: 'numeric'}).format(date)}`;
         // there has to be a better way to do this this is atrocious
     });
 }
