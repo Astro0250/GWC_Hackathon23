@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interests</title>
+    <link rel="stylesheet" type="text/css" href="interests.css">
+</head>
+<body>
+    <table>
+        <thead>
+            <tr class="headers">
+                <th class="header-selected" onclick="swapTopic('sports');">Sports</th>
+                <th class="header-not-selected" onclick="swapTopic('music');">Music</th>
+                <th class="header-not-selected" onclick="swapTopic('movies');">Movies</th>
+                <th class="header-not-selected" onclick="swapTopic('other')">Other</th>
+            </tr>
+        </thead>
+        <tbody class="Interest-Container" id="Sports Interests" style="display: static;">
+            <tr>
+                <td class="Interest" id="1"  onclick="updateInterests(this.innerHTML, 'Sports Interests');">Soccer</td>
+                <td class="Interest" id="2" onclick="updateInterests(this.innerHTML, 'Sports Interests');">Football</td>
+                <td class="Interest" id="3" onclick="updateInterests(this.innerHTML, 'Sports Interests');">Basketball</td>
+                <td class="Interest" id="4" onclick="updateInterests(this.innerHTML, 'Sports Interests');">Baseball</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="5" onclick="updateInterests(this.innerHTML, 'Sports Interests');">Hockey</td>
+                <td class="Interest" id="6" onclick="updateInterests(this.innerHTML, 'Sports Interests');">Tennis</td>
+                <td class="Interest" id="7" onclick="updateInterests(this.innerHTML, 'Sports Interests');">Golf</td>
+                <td class="Interest" id="8" onclick="updateInterests(this.innerHTML, 'Sports Interests');">Volleyball</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="9" onclick="updateInterests(this.innerHTML, 'Sports Interests');">Lacrosse</td>
+                <td class="Interest" id="10" onclick="updateInterests(this.innerHTML, 'Sports Interests');">Swimming</td>
+                <td class="Interest" id="11" onclick="updateInterests(this.innerHTML, 'Sports Interests');">Track</td>
+                <td class="Interest" id="12" onclick="updateInterests(this.innerHTML, 'Sports Interests');">Cross Country</td>
+            </tr>
+        </tbody>
+        <tbody class="Interest-Container" id="Music Interests" style="display: none;">
+            <tr>
+                <td class="Interest" id="1" onclick="updateInterests(this.innerHTML, 'Music Interests');">Rock</td>
+                <td class="Interest" id="2" onclick="updateInterests(this.innerHTML, 'Music Interests');">Pop</td>
+                <td class="Interest" id="3" onclick="updateInterests(this.innerHTML, 'Music Interests');">Country</td>
+                <td class="Interest" id="4" onclick="updateInterests(this.innerHTML, 'Music Interests');">Rap</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="5" onclick="updateInterests(this.innerHTML, 'Music Interests');">Hip Hop</td>
+                <td class="Interest" id="6" onclick="updateInterests(this.innerHTML, 'Music Interests');">R&B</td>
+                <td class="Interest" id="7" onclick="updateInterests(this.innerHTML, 'Music Interests');">Classical</td>
+                <td class="Interest" id="8" onclick="updateInterests(this.innerHTML, 'Music Interests');">Jazz</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="9" onclick="updateInterests(this.innerHTML, 'Music Interests');">Electronic</td>
+                <td class="Interest" id="10" onclick="updateInterests(this.innerHTML, 'Music Interests');">Reggae</td>
+                <td class="Interest" id="11" onclick="updateInterests(this.innerHTML, 'Music Interests');">Folk</td>
+                <td class="Interest" id="12" onclick="updateInterests(this.innerHTML, 'Music Interests');">Indie</td>
+            </tr>
+        </tbody>
+        <tbody class="Interest-Container" id="Movies Interests" style="display: none;">
+            <tr>
+                <td class="Interest" id="1" onclick="updateInterests(this.innerHTML, 'Movies Interests');">Action</td>
+                <td class="Interest" id="2" onclick="updateInterests(this.innerHTML, 'Movies Interests');">Comedy</td>
+                <td class="Interest" id="3" onclick="updateInterests(this.innerHTML, 'Movies Interests');">Drama</td>
+                <td class="Interest" id="4" onclick="updateInterests(this.innerHTML, 'Movies Interests');">Horror</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="5" onclick="updateInterests(this.innerHTML, 'Movies Interests');">Romance</td>
+                <td class="Interest" id="6" onclick="updateInterests(this.innerHTML, 'Movies Interests');">Sci-Fi</td>
+                <td class="Interest" id="7" onclick="updateInterests(this.innerHTML, 'Movies Interests');">Thriller</td>
+                <td class="Interest" id="8" onclick="updateInterests(this.innerHTML, 'Movies Interests');">Western</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="9" onclick="updateInterests(this.innerHTML, 'Movies Interests');">Documentary</td>
+                <td class="Interest" id="10" onclick="updateInterests(this.innerHTML, 'Movies Interests');">Musical</td>
+                <td class="Interest" id="11" onclick="updateInterests(this.innerHTML, 'Movies Interests');">War</td>
+                <td class="Interest" id="12" onclick="updateInterests(this.innerHTML, 'Movies Interests');">Animation</td>
+            </tr>
+        </tbody>
+        <tbody class="Interest-Container" id="Other Interests" style="display: none;">
+            <tr>
+                <td class="Interest" id="1" onclick="updateInterests(this.innerHTML, 'Other Interests');">Art</td>
+                <td class="Interest" id="2" onclick="updateInterests(this.innerHTML, 'Other Interests');">Books</td>
+                <td class="Interest" id="3" onclick="updateInterests(this.innerHTML, 'Other Interests');">Cooking</td>
+                <td class="Interest" id="4" onclick="updateInterests(this.innerHTML, 'Other Interests');">Dancing</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="5" onclick="updateInterests(this.innerHTML, 'Other Interests');">Fashion</td>
+                <td class="Interest" id="6" onclick="updateInterests(this.innerHTML, 'Other Interests');">Fitness</td>
+                <td class="Interest" id="7" onclick="updateInterests(this.innerHTML, 'Other Interests');">Gaming</td>
+                <td class="Interest" id="8" onclick="updateInterests(this.innerHTML, 'Other Interests');">Hiking</td>
+            </tr>
+            <tr>
+                <td class="Interest" id="9" onclick="updateInterests(this.innerHTML, 'Other Interests');">Photography</td>
+                <td class="Interest" id="10" onclick="updateInterests(this.innerHTML, 'Other Interests');">Politics</td>
+                <td class="Interest" id="11" onclick="updateInterests(this.innerHTML, 'Other Interests');">Religion</td>
+                <td class="Interest" id="12" onclick="updateInterests(this.innerHTML, 'Other Interests');">Traveling</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="button" onclick="submit();">Submit</button>
+    <script src="interests.js"></script>
+    <script type="module" src="interestModule.js"></script>
+</body>
+</html>
+
