@@ -19,7 +19,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const users = new Map();
-const userID = localStorage.getItem("userID")
+const userID = sessionStorage.getItem("userID")
 
 async function getAllUsers()
 {
