@@ -53,6 +53,7 @@ li {
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .account-info-id {
@@ -91,6 +92,7 @@ li {
     height: fit-content;
     border-bottom: var(--border-width) solid #eee;
     background-color: rgb(32, 12, 80);
+    cursor: pointer;
 }
 
 .feed-post .pfp {
