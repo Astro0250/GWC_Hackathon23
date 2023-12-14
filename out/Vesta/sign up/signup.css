@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 
 body {
-    /* background-image: url("../assets/back.png"); */
+    background-image: url("../assets/back.png");
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0;
@@ -14,7 +14,8 @@ body {
 .content {
     /* box-shadow: 0 0 50px rgb(0, 0, 0); */
     background-color: #F9F7F3;
-    width: 25vw;
+    /* width: 25vw; */
+    width: clamp(300px, 25vw, 800px);
     height: 65vh;
     display: flex;
     flex-direction: column;
