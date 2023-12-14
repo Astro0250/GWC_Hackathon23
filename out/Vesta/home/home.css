@@ -4,9 +4,13 @@
     --border-width: 0px;
     --main-color: #0A0121;
     --secondary-color: #272235;
+    --light-secondary-color: #302941;
     --tertiary-color: #454152;
     --quaternary-color: rgb(128, 134, 173);
     --quinary-color: #525C81;
+    --highlight-color: #C2AFF0;
+    --dark-highlight-color: rgb(96, 73, 148);
+    --red: #b96880;
     
     --text-color: var(--quaternary-color);
     --back-color: var(--main-color);
@@ -45,7 +49,7 @@ body {
 
 .header-nav div {
     width: 0%;
-    background-color: var(--secondary-color);
+    background-color: var(--dark-highlight-color);
     transition-duration: 0.25s;
 }
 
@@ -96,14 +100,14 @@ li {
 }
 
 #accUsername {
-    color: var(--text-header-color);
+    color: var(--highlight-color);
 }
 
 .logout {
     background-color: var(--secondary-color);
-    color: var(--text-color);
+    color: var(--red);
     border-radius: 10px;
-    border-color: var(--text-color);
+    border-color: var(--red);
     font-family: 'PT Sans', sans-serif;
     padding: 5px;
     font-size: 12pt;
@@ -134,11 +138,10 @@ li {
     cursor: pointer;
     border-radius: 10px;
     transition-duration: 0.2s;
-    box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5);
 }
 
 .feed-post:hover {
-    background-color: var(--tertiary-color);
+    background-color: var(--light-secondary-color);
 }
 
 .feed-post .pfp {
@@ -179,7 +182,7 @@ li {
 .username {
     font-size: 20px;
     margin: 0px;
-    color: var(--text-header-color);
+    color: var(--dark-highlight-color);
 }
 
 .other-stuff {
@@ -288,9 +291,9 @@ li {
     background-color: var(--secondary-color);
     font-size: 20pt;
     font-family: 'PT Sans', sans-serif;
-    color: var(--text-color);
+    color: var(--highlight-color);
     border-radius: 15px;
-    border-color: var(--text-color);
+    border-color: var(--highlight-color);
     padding: 15px;
     border-width: 2px;
     transition-duration: 0.25s;
