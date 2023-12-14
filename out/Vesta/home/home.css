@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
 :root {
     --back-color: #0b0013;
     --border-width: 2px;
@@ -7,6 +9,7 @@
 body {
     margin: 0px;
     background-color: var(--back-color);
+    font-family: 'PT Sans', sans-serif;
 }
 
 .header {
@@ -20,6 +23,27 @@ body {
     margin-right: 0px;
     position: fixed;
     justify-content: space-between;
+}
+
+.header-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.header-nav li a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-nav div {
+    width: 0%;
+    background-color: red;
+    transition-duration: 0.25s;
+}
+
+.header-nav li div:hover {
+    width: 100%;
 }
 
 ul {
