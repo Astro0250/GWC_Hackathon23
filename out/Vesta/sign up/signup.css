@@ -1,7 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 
+:root {
+    --border-width: 0px;
+    --main-color: #0A0121;
+    --secondary-color: #272235;
+    --light-secondary-color: #302941;
+    --tertiary-color: #454152;
+    --quaternary-color: rgb(128, 134, 173);
+    --quinary-color: #525C81;
+    --highlight-color: #C2AFF0;
+    --dark-highlight-color: rgb(96, 73, 148);
+}
+
+
 body {
-    background-image: url("back.png");
+    background-image: url("backshots.png");
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0;
@@ -13,22 +26,18 @@ body {
 
 .content {
     /* box-shadow: 0 0 50px rgb(0, 0, 0); */
-    background-color: #F9F7F3;
+    background-color: var(--tertiary-color);
     /* width: 25vw; */
     width: clamp(300px, 25vw, 800px);
     height: 65vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: #0A6871;
+    border: var(--main-color);
     border-style: solid;
     border-width: 3px;
     border-radius: 25px;
     box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
-}
-
-.title {
-    color: white;
 }
 
 .center
@@ -43,8 +52,8 @@ body {
 
 .webname
 {
-    background-color: #0FA3B1;
-    color: #fff;
+    background-color: var(--secondary-color);
+    color: var(--quaternary-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,24 +82,24 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    color: #0A6871;
 }
 
 .form h1 {
     margin: 15px 0 0 0;
+    color: var(--quaternary-color)
 }
 
 .form p {
     margin: 25px 0 2px 0;
     font-size: 8pt;
-    color: #5c5c5c;
+    color: var(--quaternary-color);
 }
 
 .google-button {
     display: flex;
     border-radius: 10px;
-    background-color: #F7A072;
-    border-color: #bc7048;
+    background-color: var(--dark-highlight-color);
+    border-color: var(--highlight-color);
     border-width: 2px;
     padding: 0;
     align-items: center;
@@ -98,11 +107,11 @@ body {
 }
 
 .google-button:hover {
-    background-color: #e7976b;
+    background-color: rgb(89, 68, 138);
 }
 
 .google-button:active {
-    background-color: #d18861;
+    background-color: rgb(87, 67, 133);
 }
 
 .google-button img {
@@ -113,12 +122,12 @@ body {
 
 .vertical {
     height: 100%;
-    background-color: #bc7048;
+    background-color: var(--highlight-color);
     width: 2px;
 }
 
 .google-button p {
-    color: white;
+    color: rgb(228, 216, 247);
     padding: 10px;
     font-size: 12pt;
     margin-top: 2px;
