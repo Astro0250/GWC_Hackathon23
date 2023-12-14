@@ -25,7 +25,7 @@
             <h1>Create an Organization</h1>
         </div>
         <div class="make-org-content">
-            <form action="org.php" method="post">
+            <form>
                 <div class="make-org-input">
                     <h2 for="org-name">Organization Name:</h2>
                     <input type="text" name="org-name" id="org-name" placeholder="Organization Name">
@@ -52,8 +52,8 @@
                     <input type="text" name="org-discord" id="org-discord" placeholder="Organization Discord">
                 </div>
                 <div class="make-org-input">
-                    <h2 for="org-state">Organization Instagram:</h2>
-                    <input type="text" name="org-state" id="org-state" placeholder="Organization State">
+                    <h2 for="org-insta">Organization Instagram:</h2>
+                    <input type="text" name="org-insta" id="org-insta" placeholder="Organization State">
                 </div>
                 <div class="make-org-input">
                     <h2 for="org-website">Organization Website:</h2>
@@ -64,7 +64,7 @@
                     <div class="make-org-interests">
                         <div class="make-org-interest">
                             <h3>Academics</h3>
-                            <input type="range" name="org-Academics" id="org-Academics" min="1" max="10" value="5">
+                            <input type="range" name="org-Academics" id="org-academics" min="1" max="10" value="5">
                         </div>
                         <div class="make-org-interest">
                             <h3>Arts</h3>
@@ -95,7 +95,7 @@
                 </div>
             </form>
             <div class="make-org-buttons">
-                <button class="make-org-button" onclick="submit()">Submit</button>
+                <button id="submitBtn" class="make-org-button">Submit</button>
             </div>
         </div>
     </div>
