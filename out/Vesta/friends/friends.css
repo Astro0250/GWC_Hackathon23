@@ -208,7 +208,9 @@ li {
 }
 
 .friend .pfp {
-    padding-right: 800%;
+    padding-right: 1em;
+    width: 70px;
+    height: 70px;
 }
 
 .friend .content {
