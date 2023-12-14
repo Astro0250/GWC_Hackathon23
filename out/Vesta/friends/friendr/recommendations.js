@@ -19,7 +19,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const users = new Map();
-const userID = sessionStorage.getItem("userID")
+const userID = "GjSpCmxE9yaBjgGVkDXZ0hUKjJf1" //sessionStorage.getItem("userID")
+const categories = ["arts","academics","books","music","games-and-technology","tv-and-movies","sports"];
+const compatabilityMap = new Map();
 
 async function getAllUsers()
 {
@@ -35,6 +37,15 @@ async function getAllUsers()
     }
 }
     
+async function getCategories()
+{
+    const snapshot = await getDocs(collection(db, 'interests-categories'));
+    snapshot.docs.forEach(doc => 
+        {
+            categories.push(doc.id);
+        });
+}
+
 function calculateCompatabilityScore(loggedInUser, other)
 {
     if (loggedInUser == other)
@@ -42,7 +53,6 @@ function calculateCompatabilityScore(loggedInUser, other)
         return null;
     }
     let score = 0.5;
-    console.log(users.get(loggedInUser).interests);
     let interests = users.get(loggedInUser).interests;
     for (let interest of interests)
     {
@@ -51,29 +61,19 @@ function calculateCompatabilityScore(loggedInUser, other)
             score = Math.pow(score, 0.75);
         }
     } 
-    // rewrite for scalability and elegance
-    let categories = [
-        Math.abs(users.get(loggedInUser).categories.academic - users.get(other).categories.academic),
-        Math.abs(users.get(loggedInUser).categories.art - users.get(other).categories.art),
-        Math.abs(users.get(loggedInUser).categories.craft - users.get(other).categories.craft),
-        Math.abs(users.get(loggedInUser).categories.games - users.get(other).categories.games),
-        Math.abs(users.get(loggedInUser).categories.tech - users.get(other).categories.tech),
-        Math.abs(users.get(loggedInUser).categories.sport - users.get(other).categories.sport)
-    ]
     let t = 0;
-    for (let c of categories) { t += c; }
-    t += score * 6;
-    t /= categories.length + 6;
-    score = Math.pow(0.5, t);
+    for (let c of categories) { t += 1-Math.abs(users.get(loggedInUser).categories[c] - users.get(other).categories[c]);}
+    t = 1 - ((t/categories.length) + score)/2;
+    score = Math.pow(0.5, t*2);
     return score;
 }
   
 
-getAllUsers();
 (async () => {
     await getAllUsers();
+    await getCategories();
     console.log(users);
-    users.forEach((val, key) => calculateCompatabilityScore(userID, key));
+    users.forEach((val, key) => compatabilityMap.set(key, calculateCompatabilityScore(userID, key)));
 })();
 
 console.log()
