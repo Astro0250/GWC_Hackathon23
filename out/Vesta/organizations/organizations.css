@@ -1,9 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 
 :root {
-    --back-color: black;
     --border-width: 0px;
-    --boder-col: #eee;
+    --main-color: #0A0121;
+    --secondary-color: #272235;
+    --light-secondary-color: #302941;
+    --tertiary-color: #454152;
+    --quaternary-color: rgb(128, 134, 173);
+    --dark-quaternary-color: rgb(86, 90, 117);
+    --quinary-color: #525C81;
+    --highlight-color: #C2AFF0;
+    --dark-highlight-color: rgb(96, 73, 148);
+    --red: #b96880;
+    
+    --text-color: var(--quaternary-color);
+    --back-color: var(--main-color);
+    --border-col: var(--tertiary-color);
+    --text-header-color: rgb(72, 75, 94);
 }
 
 body {
@@ -14,13 +27,15 @@ body {
 }
 
 .header {
-    background: #0A6871;
+    background: var(--back-color);
     display: flex;
     flex-direction: column;
     width: clamp(230px, 20vw, 1000px);
     height: 100vh;
     margin-right: 0px;
     justify-content: space-between;
+    color: var(--text-color);
+    border-right: var(--border-col) 1px solid;
 }
 
 .header-nav ul {
@@ -30,13 +45,13 @@ body {
 }
 
 .header-nav li a {
-    color: #F9F7F3;
+    color: var(--text-color);
     text-decoration: none;
 }
 
 .header-nav div {
     width: 0%;
-    background-color: #F7A072;
+    background-color: var(--dark-highlight-color);
     transition-duration: 0.25s;
 }
 
@@ -59,11 +74,11 @@ li {
     list-style-type: none;
     padding: 10px;
     font-size: 30px;
-    color: #F9F7F3;
+    color: var(--text-color);
 }
 
 .account-info {
-    color: #F9F7F3;
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,62 +102,61 @@ li {
 }
 
 #accUsername {
-    color: #EDDEA4;
+    color: var(--highlight-color);
 }
 
 .logout {
-    background-color: #f77f72;
-    color: #F9F7F3;
+    background-color: var(--secondary-color);
+    color: var(--red);
     border-radius: 10px;
-    border-color: #c36359;
+    border-color: var(--red);
     font-family: 'PT Sans', sans-serif;
     padding: 5px;
     font-size: 12pt;
+}
+
+.other-stuff {
+    background-color: var(--main-color);
+    height: 100vh;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: var(--border-col) 1px solid;
+    color: var(--text-color);
+}
+
+.other-stuff h1 {
+    margin: 25px;
+    text-align: center;
 }
 
 .orgs {
     display: flex;
     flex-direction: column;
     width: 60vw;
-    border-left: var(--border-width) solid #eee;
-    border-right: var(--border-width) solid #eee;
-    background: #0A6871;
+    height: 100vh;
+    background-color: var(--main-color);
 }
 
-.orgs .orgs-header{
+.orgs-header{
+    box-sizing: border-box;
+    width: 100%;
+    height: 10vh;
+    margin: 0;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between; /* This will align .my-orgs to the start and .find-org and .make-org to the end */
-    padding-left: 3em;
-    border-bottom: var(--border-width) solid #eee;
-    background-color: rgb(32, 12, 80);
-    color: #cacaca;
-    height: 15vh;
+    justify-content: center;
+    align-items: center;
+    border-bottom: var(--border-col) 1px solid;
 }
 
-.orgs .orgs-header #my-orgs{
-    flex:1;
-    padding-top: 1em;
-    font-size: 30px;
-}
-.orgs .orgs-header span{
-    cursor: pointer;
-}
-.orgs .orgs-header #find-org{
-    padding: 1em;
-    border-radius: 15px;
-    text-align: center;
-    border: var(--border-width) solid #eee;
-}
-.orgs .orgs-header #make-org{
-    padding: 1em;
-    border-radius: 15px;
-    text-align: center;
-    border: var(--border-width) solid #eee;
+.orgs-header h1 {
+    margin: 0;
+    color: var(--text-color);
 }
 
 .org-view {
-    height: 85vh;
+    height: 90vh;
     overflow-y: scroll;
 }
 
@@ -158,11 +172,14 @@ li {
     padding-left: 5em;
     padding-right: 5em;
     height: fit-content;
-    background-color: #0FA3B1;
+    background-color: var(--secondary-color);
     cursor: pointer;
     border-radius: 10px;
     transition-duration: 0.2s;
-    box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.org:hover {
+    background-color: var(--light-secondary-color);
 }
 
 .org .pfp {
@@ -192,12 +209,21 @@ li {
     font-size: 18px;
 }
 
-.other-stuff {
-    background-color: #0A6871;
-    height: 100vh;
-    width: 20vw;
+.org-actions{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+}
+
+.org-actions button {
+    background-color: var(--secondary-color);
+    font-size: 16pt;
+    font-family: 'PT Sans', sans-serif;
+    color: var(--highlight-color);
+    border-radius: 15px;
+    border-color: var(--highlight-color);
+    padding: 15px;
+    border-width: 2px;
+    transition-duration: 0.25s;
+    margin: 0 25px 25px 25px;
+    width: 80%;
 }
