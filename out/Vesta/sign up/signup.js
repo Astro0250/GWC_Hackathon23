@@ -26,15 +26,16 @@ getRedirectResult(auth)
     const user = result.user;
     if (getAdditionalUserInfo(result).isNewUser) {
             document.getElementById("googleBtn").style.display = "none";
+
             const data = {
-                catergories: {
-                    academic:0.5,
-                    art:0.5,
-                    craft:0.5,
-                    games:0.5,
-                    social:0.5,
-                    sport:0.5,
-                    tech:0.5
+                categories: {
+                    'arts':0.5,
+                    'academics':0.5,
+                    'books':0.5,
+                    'games-and-technology':0.5,
+                    'music':0.5,
+                    'tv-and-movies':0.5,
+                    'sports':0.5
                 },
                 clubs: [],
                 friends: [],
