@@ -26,8 +26,6 @@ function toggleCategory(category)
     });
 }
 
-
-
 import("./interestModule.js").then(({ sendToDatabase }) => {
     document.getElementById("submit-button").addEventListener("click", () => {
         selected = document.querySelectorAll(`[selected='true']`);
