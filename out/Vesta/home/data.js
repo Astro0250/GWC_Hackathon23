@@ -22,7 +22,7 @@ const db = getFirestore(app);
 
 const sample = document.querySelector("#samplePost")
 
-function getPosts(){
+function getPosts() {
     // Initialize Firebase
 
     getDocs(collection(db, 'posts'))
@@ -37,8 +37,8 @@ function getPosts(){
         .catch((error) => {
             console.log(error.message);
         });
-    }
-    function setPosts(posts){
+}
+function setPosts(posts) {
     posts.forEach((post) => {
         let clone = sample.cloneNode(true);
         document.getElementById("feed").append(clone);
@@ -46,8 +46,8 @@ function getPosts(){
         clone.getElementsByClassName('content')[0].getElementsByClassName('post-header')[0].getElementsByClassName('username')[0].innerHTML = post['owner'];
         clone.getElementsByClassName('content')[0].getElementsByClassName('text')[0].innerHTML = post['content'];
         const date = new Date(post['timestamp']);
-        clone.getElementsByClassName('content')[0].getElementsByClassName('post-header')[0].getElementsByClassName('date')[0].innerHTML = `${new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'long', day: 'numeric'}).format(date)} at ${new Intl.DateTimeFormat('en-US', {hour: 'numeric', minute: 'numeric'}).format(date)}`;
-        // there has to be a better way to do this this is atrocious
+        clone.getElementsByClassName('content')[0].getElementsByClassName('post-header')[0].getElementsByClassName('date')[0].innerHTML = `${new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(date)} at ${new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric' }).format(date)}`;
+        clone.style.display = "flex";
     });
 }
 getPosts();
@@ -56,7 +56,7 @@ async function getUserData(uid) {
     const docref = doc(db, "users", uid);
     const userData = await getDoc(docref);
 
-    if(userData.data() != null) {
+    if (userData.data() != null) {
         console.log("data exists!");
         console.log(userData.data());
     } else {
@@ -67,28 +67,28 @@ async function getUserData(uid) {
 const auth = getAuth();
 let currentUser = null;
 onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // https://firebase.google.com/docs/reference/js/auth.user
-    const uid = user.uid;
-    currentUser = user;
-    getUserData(uid);
-    //localStorage.set("userID", uid);
-    accUsername.innerHTML = user.displayName;
-    accPFP.src = user.photoURL;
-    sessionStorage.setItem("userID", uid);
-  } else {
-    window.location.replace("../sign up/signup.html");
-  }
+    if (user) {
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const uid = user.uid;
+        currentUser = user;
+        getUserData(uid);
+        //localStorage.set("userID", uid);
+        accUsername.innerHTML = user.displayName;
+        accPFP.src = user.photoURL;
+        sessionStorage.setItem("userID", uid);
+    } else {
+        window.location.replace("../sign up/signup.html");
+    }
 });
 
-document.getElementById("logoutBtn").addEventListener('click',(e) => {
+document.getElementById("logoutBtn").addEventListener('click', (e) => {
     signOut(auth)
-    .then(() => {
-        window.location.replace("../sign up/signup.html");
-    })
-    .catch((error) => {
-        console.log(error.message);
-    });
+        .then(() => {
+            window.location.replace("../sign up/signup.html");
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
 });
 
 document.getElementById("postBtn").addEventListener('click', (e) => {
