@@ -227,3 +227,11 @@ li {
     margin: 0 25px 25px 25px;
     width: 80%;
 }
+
+.org-actions button:hover {
+    background-color: var(--tertiary-color);
+}
+
+.org-actions button:active {
+    background-color: var(--tertiary-color);
+}

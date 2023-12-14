@@ -11,15 +11,21 @@
     <div class="header">
         <nav class="header-nav">
             <ul>
-                <li><a href="../../home/home.html">home</a></li>
-                <li><a href="../../friends/friends.html">friends</a></li>
-                <li><a href="../../organizations/organizations.html">organizations</a></li>
-                <li><a href="../../notifications/notifications.html">notifications</a></li>
-                <li><a href="../../fundraisers/fundraisers.html">fundraisers</a></li>
-                <li><a href="../../settings/settings.html">settings</a></li>
+                <li><div><a href="../../home/home.html">Home</a></div></li>
+                <li><div><a href="../../friends/friends.html">Friends</a></div></li>
+                <li><div><a href="../../organizations/organizations.html">Organizations</a></div></li>
+                <li><div><a href="../../about/about.html">About</a></div></li>
             </ul>
         </nav>
+        <div class="account-info">
+            <div class="account-info-id">
+                <img class="account-info-pfp" id="accPFP" src="https://static.thenounproject.com/png/5034901-200.png" />
+                <p>Logged in as <b id="accUsername">N/A</b></p>
+            </div>
+            <button id="logoutBtn" class="logout">Log out</button>
+        </div>
     </div>
+
     <div class="find-org">
         <div class="find-org-header">
             <h1>Find an Organization:</h1>
@@ -29,6 +35,15 @@
         <div class="find-org-results">
         </div>
     </div>
+
+    <div class="other-stuff">
+        <h1>Organization Actions</h1>
+        <div class="org-actions">
+            <button id="make-org" onclick="reroute(1)">Create an Organization</button>
+            <button id="find-org" onclick="reroute(2)">Find an Organization</button>
+        </div>
+    </div>
+    
     <script>init();</script>
 </body>
 </html>

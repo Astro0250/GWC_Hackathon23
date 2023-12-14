@@ -127,7 +127,7 @@ li {
 }
 
 .other-stuff h1 {
-    margin: 25px;
+    margin: 25px 25px 0 25px;
 }
 
 .friend-actions{
@@ -146,6 +146,14 @@ li {
     border-width: 2px;
     transition-duration: 0.25s;
     margin: 25px 25px 0 25px;
+}
+
+.friend-actions button:hover {
+    background-color: var(--tertiary-color);
+}
+
+.friend-actions button:active {
+    background-color: var(--tertiary-color);
 }
 
 .friends {

@@ -11,24 +11,42 @@
     <div class="header">
         <nav class="header-nav">
             <ul>
-                <li><a href="../../home/home.html">home</a></li>
-                <li><a href="../../friends/friends.html">friends</a></li>
-                <li><a href="../../organizations/organizations.html">organizations</a></li>
-                <li><a href="../../notifications/notifications.html">notifications</a></li>
-                <li><a href="../../fundraisers/fundraisers.html">fundraisers</a></li>
-                <li><a href="../../settings/settings.html">settings</a></li>
+                <li><div><a href="../../home/home.html">Home</a></div></li>
+                <li><div><a href="../../friends/friends.html">Friends</a></div></li>
+                <li><div><a href="../../organizations/organizations.html">Organizations</a></div></li>
+                <li><div><a href="../../about/about.html">About</a></div></li>
             </ul>
         </nav>
+        <div class="account-info">
+            <div class="account-info-id">
+                <img class="account-info-pfp" id="accPFP" src="https://static.thenounproject.com/png/5034901-200.png" />
+                <p>Logged in as <b id="accUsername">N/A</b></p>
+            </div>
+            <button id="logoutBtn" class="logout">Log out</button>
+        </div>
     </div>
+
     <div class="find-friend">
         <div class="find-friend-header">
-            <h1>Find a Friend:</h1>
-            <input type="text" name="friend-name" id="friend-name" placeholder="Friend Name">
-            <button onclick="findFriend()">Search</button>
+            <h1>Find a Friend</h1>
+            <div class="search">
+                <input type="text" name="friend-name" id="friend-name" placeholder="Friend Name">
+                <button onclick="findFriend()">Search</button>
+            </div>
         </div>
         <div class="find-friend-results">
         </div>
     </div>
+
+    <div class="other-stuff">
+        <h1>Friend Actions</h1>
+        <div class="friend-actions">
+            <button id="find-friends" onclick="reroute(1)">Find Friends</button>
+            <button id="friend-tinder" onclick="reroute(2)">Friendr</button>
+        </div>
+    </div>
+
     <script>init();</script>
+    <script type="module" src="data.js"></script>
 </body>
 </html>
