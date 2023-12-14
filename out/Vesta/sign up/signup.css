@@ -21,8 +21,9 @@ body {
     align-items: center;
     border: #0A6871;
     border-style: solid;
-    border-width: 5px;
-    border-radius: 30px;
+    border-width: 3px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 .title {
@@ -48,7 +49,7 @@ body {
     align-items: center;
     width: 100%;
     height: 40%;
-    border-radius: 25px 25px 0 0;
+    border-radius: 23px 23px 0 0;
     justify-content: center;
 }
 
@@ -92,6 +93,15 @@ body {
     border-width: 2px;
     padding: 0;
     align-items: center;
+    transition-duration: 0.25s;
+}
+
+.google-button:hover {
+    background-color: #e7976b;
+}
+
+.google-button:active {
+    background-color: #d18861;
 }
 
 .google-button img {
