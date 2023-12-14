@@ -28,9 +28,11 @@
 
     <div class="find-org">
         <div class="find-org-header">
-            <h1>Find an Organization:</h1>
-            <input type="text" name="org-name" id="org-name" placeholder="Organization Name">
-            <button onclick="findOrg()">Search</button>
+            <h1>Find an Organization</h1>
+            <div class="search">
+                <input type="text" name="org-name" id="org-name" placeholder="Organization Name">
+                <button onclick="findOrg()">Search</button>
+            </div>
         </div>
         <div class="find-org-results">
         </div>
@@ -43,7 +45,7 @@
             <button id="find-org" onclick="reroute(2)">Find an Organization</button>
         </div>
     </div>
-    
+
     <script>init();</script>
 </body>
 </html>
