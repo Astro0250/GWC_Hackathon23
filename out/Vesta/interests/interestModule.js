@@ -31,7 +31,7 @@ async function addInterests()
                 div.setAttribute("class", "interest-choice");
                 div.setAttribute("selected", "false");
                 div.setAttribute("visible", "true");
-                div.style.order = Math.floor(Math.random() * 10);
+                div.style.order = Math.floor(Math.random() * 40);
                 div.addEventListener("click", (d) => 
                 {
                     if (d.target.getAttribute("selected") == "false")
