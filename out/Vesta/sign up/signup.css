@@ -13,13 +13,16 @@ body {
 
 .content {
     /* box-shadow: 0 0 50px rgb(0, 0, 0); */
-    background-color: #B5E2FA;
-    width: 60vw;
-    height: 80vh;
+    background-color: #F9F7F3;
+    width: 25vw;
+    height: 65vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    border-radius: 25px;
-    justify-content: center;
+    border: #0A6871;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 30px;
 }
 
 .title {
@@ -38,37 +41,74 @@ body {
 
 .webname
 {
+    background-color: #0FA3B1;
     color: #fff;
-    width: 40%;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
     height: 40%;
+    border-radius: 25px 25px 0 0;
+    justify-content: center;
 }
 
 .webname h1 {
     /* font-style: italic; */
-    font-size: 120pt;
-    margin: 0 20px 0 0;
+    font-size: clamp(50pt, 8vw, 80pt);
+    margin: 0 0 0 0;
 }
 
 .webname p {
     margin: 0;
-    margin: 0 20px 0 0;
-}
-
-.vertical
-{
-    background-color: #473653;
-    width: 2px;
-    height: 85%;
+    margin: 0 0 20px 0;
 }
 
 .form
 {
-    width: 60%;
+    height: 60%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    color: #0A6871;
+}
+
+.form h1 {
+    margin: 15px 0 0 0;
+}
+
+.form p {
+    margin: 25px 0 2px 0;
+    font-size: 8pt;
+    color: #5c5c5c;
+}
+
+.google-button {
+    display: flex;
+    border-radius: 10px;
+    background-color: #F7A072;
+    border-color: #bc7048;
+    border-width: 2px;
+    padding: 0;
+    align-items: center;
+}
+
+.google-button img {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+
+.vertical {
+    height: 100%;
+    background-color: #bc7048;
+    width: 2px;
+}
+
+.google-button p {
+    color: white;
+    padding: 10px;
+    font-size: 12pt;
+    margin-top: 2px;
 }
