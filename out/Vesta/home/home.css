@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 
 :root {
-    --back-color: black;
     --border-width: 0px;
-    --boder-col: #eee;
+    --main-color: #0A0121;
+    --secondary-color: #272235;
+    --tertiary-color: #454152;
+    --quaternary-color: rgb(128, 134, 173);
+    --quinary-color: #525C81;
+    
+    --text-color: var(--quaternary-color);
+    --back-color: var(--main-color);
+    --boder-col: var(--quinary-color);
+    --text-header-color: rgb(72, 75, 94);
 }
 
 body {
@@ -14,13 +22,14 @@ body {
 }
 
 .header {
-    background: #0A6871;
+    background: var(--back-color);
     display: flex;
     flex-direction: column;
     width: clamp(230px, 20vw, 1000px);
     height: 100vh;
     margin-right: 0px;
     justify-content: space-between;
+    color: var(--text-color);
 }
 
 .header-nav ul {
@@ -30,13 +39,13 @@ body {
 }
 
 .header-nav li a {
-    color: #F9F7F3;
+    color: var(--text-color);
     text-decoration: none;
 }
 
 .header-nav div {
     width: 0%;
-    background-color: #F7A072;
+    background-color: var(--secondary-color);
     transition-duration: 0.25s;
 }
 
@@ -59,11 +68,11 @@ li {
     list-style-type: none;
     padding: 10px;
     font-size: 30px;
-    color: #F9F7F3;
+    color: var(--text-color);
 }
 
 .account-info {
-    color: #F9F7F3;
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,14 +96,14 @@ li {
 }
 
 #accUsername {
-    color: #EDDEA4;
+    color: var(--text-header-color);
 }
 
 .logout {
-    background-color: #f77f72;
-    color: #F9F7F3;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
     border-radius: 10px;
-    border-color: #c36359;
+    border-color: var(--text-color);
     font-family: 'PT Sans', sans-serif;
     padding: 5px;
     font-size: 12pt;
@@ -105,7 +114,7 @@ li {
     flex-direction: column;
     width: 60vw;
     height: 100vh;
-    background-color: #0A6871;
+    background-color: var(--main-color);
     overflow-y: scroll;
 }
 
@@ -121,7 +130,7 @@ li {
     padding-left: 5em;
     padding-right: 5em;
     height: fit-content;
-    background-color: #0FA3B1;
+    background-color: var(--secondary-color);
     cursor: pointer;
     border-radius: 10px;
     transition-duration: 0.2s;
@@ -129,7 +138,7 @@ li {
 }
 
 .feed-post:hover {
-    background-color: #0f98a4;
+    background-color: var(--tertiary-color);
 }
 
 .feed-post .pfp {
@@ -140,7 +149,7 @@ li {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    color: #F9F7F3;
+    color: var(--text-color);
     width: 100%;
 }
 
@@ -159,7 +168,7 @@ li {
 .date {
     font-size: 10pt;
     margin: 5px 0 0 0;
-    color: #B5E2FA;
+    color: var(--text-color);
 }
 
 .text {
@@ -170,11 +179,11 @@ li {
 .username {
     font-size: 20px;
     margin: 0px;
-    color: #EDDEA4;
+    color: var(--text-header-color);
 }
 
 .other-stuff {
-    background-color: #0A6871;
+    background-color: var(--main-color);
     height: 100vh;
     width: 20vw;
     display: flex;
@@ -188,7 +197,7 @@ li {
     font-size: 10px;
     margin-left: 2em;
     margin-top: 0.5em;
-    background-color: rgb(32, 12, 80);
+    background-color: var(--secondary-color);
     padding: 0.5em;
     padding-left: 1.5em;
     padding-right: 1.5em;
@@ -206,9 +215,9 @@ li {
     padding: 1.5em;
     border-radius: 15px;
     height: fit-content;
-    border-bottom: var(--border-width) solid #F9F7F3;
-    border-right: var(--border-width) solid #F9F7F3;
-    background-color: rgb(32, 12, 80);
+    border-bottom: var(--border-width) solid var(--text-color);
+    border-right: var(--border-width) solid var(--text-color);
+    background-color: var(--secondary-color);
 }
 
 .fund .pfp {
@@ -225,7 +234,7 @@ li {
 .fund .fund-content p {
     margin: 0 0 0 0;
     font-size: 15px;
-    color: #F9F7F3;
+    color: var(--text-color);
 }
 .fund .fund-content h1{
     margin-bottom: 0.1em;
@@ -247,13 +256,13 @@ li {
 .create-post {
     width: 60vw;
     height: 80vh;
-    background-color: rgb(97, 78, 142);
+    background-color: var(--main-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     border-radius: 30px;
-    color: #F9F7F3;
+    color: var(--text-color);
 }
 
 .post-box {
@@ -261,12 +270,12 @@ li {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24pt;
     padding: 5px;
-    background-color: rgb(114, 92, 168);
-    color: #F9F7F3;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
 }
 
 .post-box::placeholder {
-    color: #F9F7F3;
+    color: var(--text-color);
 }
 
 .post-button {
@@ -276,12 +285,12 @@ li {
 }
 
 .create-post-button {
-    background-color: #F7A072;
+    background-color: var(--secondary-color);
     font-size: 20pt;
     font-family: 'PT Sans', sans-serif;
-    color: #F9F7F3;
+    color: var(--text-color);
     border-radius: 15px;
-    border-color: #bc7048;
+    border-color: var(--text-color);
     padding: 15px;
     border-width: 2px;
     transition-duration: 0.25s;
@@ -289,11 +298,11 @@ li {
 }
 
 .create-post-button:hover {
-    background-color: #e7976b;
+    background-color: var(--tertiary-color);
 }
 
 .create-post-button:active {
-    background-color: #d18861;
+    background-color: var(--tertiary-color);
 }
 
 .center

@@ -24,19 +24,24 @@ const sample = document.querySelector("#samplePost")
 
 function getPosts() {
     // Initialize Firebase
-
     getDocs(collection(db, 'posts'))
         .then((snapshot) => {
             let posts = [];
             snapshot.docs.forEach(doc => {
                 posts.push(doc.data());
             });
+            sortPostsByDate(posts);
             console.log(posts);
             setPosts(posts);
         })
         .catch((error) => {
             console.log(error.message);
         });
+}
+function sortPostsByDate(posts) {
+    posts.sort((a, b) => {
+        return b['timestamp'] - a['timestamp'];
+    });
 }
 function setPosts(posts) {
     posts.forEach((post) => {
@@ -101,4 +106,14 @@ document.getElementById("postBtn").addEventListener('click', (e) => {
     };
     setDoc(doc(db, "posts", `${Date.now()}`), data);
     postOverlay.style.display = "none";
+    let post = data;
+    let clone = sample.cloneNode(true);
+    document.getElementById("feed").prepend(clone);
+    clone.getElementsByClassName('pfp')[0].getElementsByClassName("account-info-pfp")[0].src = post['pfp'];
+    clone.getElementsByClassName('content')[0].getElementsByClassName('post-header')[0].getElementsByClassName('username')[0].innerHTML = post['owner'];
+    clone.getElementsByClassName('content')[0].getElementsByClassName('text')[0].innerHTML = post['content'];
+    const date = new Date(post['timestamp']);
+    clone.getElementsByClassName('content')
+        [0].getElementsByClassName('post-header')[0].getElementsByClassName('date')[0].innerHTML = `${new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(date)} at ${new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: 'numeric' }).format(date)}`;
+    clone.style.display = "flex";
 });

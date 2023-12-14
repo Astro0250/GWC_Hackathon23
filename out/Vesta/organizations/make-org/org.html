@@ -36,10 +36,6 @@
                         placeholder="Organization Description"></textarea>
                 </div>
                 <div class="make-org-input">
-                    <h2 for="org-pfp">Organization Profile Picture:</h2>
-                    <input type="file" name="org-pfp" id="org-pfp">
-                </div>
-                <div class="make-org-input">
                     <h2 for="org-email">Organization Email:</h2>
                     <input type="email" name="org-email" id="org-email" placeholder="Organization Email">
                 </div>
@@ -53,7 +49,7 @@
                 </div>
                 <div class="make-org-input">
                     <h2 for="org-insta">Organization Instagram:</h2>
-                    <input type="text" name="org-insta" id="org-insta" placeholder="Organization State">
+                    <input type="text" name="org-insta" id="org-insta" placeholder="Organization Instagram">
                 </div>
                 <div class="make-org-input">
                     <h2 for="org-website">Organization Website:</h2>
@@ -64,32 +60,32 @@
                     <div class="make-org-interests">
                         <div class="make-org-interest">
                             <h3>Academics</h3>
-                            <input type="range" name="org-Academics" id="org-academics" min="1" max="10" value="5">
+                            <input type="range" name="org-Academics" id="org-academics" min="0" max="9" value="5">
                         </div>
                         <div class="make-org-interest">
                             <h3>Arts</h3>
-                            <input type="range" name="org-arts" id="org-arts" min="1" max="10" value="5">
+                            <input type="range" name="org-arts" id="org-arts" min="0" max="9" value="5">
                         </div>
                         <div class="make-org-interest">
                             <h3>Books</h3>
-                            <input type="range" name="org-books" id="org-books" min="1" max="10" value="5">
+                            <input type="range" name="org-books" id="org-books" min="0" max="9" value="5">
                         </div>
                         <div class="make-org-interest">
                             <h3>Games and Technology</h3>
-                            <input type="range" name="org-games-tech" id="org-games-tech" min="1" max="10"
+                            <input type="range" name="org-games-tech" id="org-games-tech" min="0" max="9"
                                 value="5">
                         </div>
                         <div class="make-org-interest">
                             <h3>Music</h3>
-                            <input type="range" name="org-music" id="org-music" min="1" max="10" value="5">
+                            <input type="range" name="org-music" id="org-music" min="0" max="9" value="5">
                         </div>
                         <div class="make-org-interest">
                             <h3>Sports</h3>
-                            <input type="range" name="org-sports" id="org-sports" min="1" max="10" value="5">
+                            <input type="range" name="org-sports" id="org-sports" min="0" max="9" value="5">
                         </div>
                         <div class="make-org-interest">
                             <h3>TV and Movies</h3>
-                            <input type="range" name="org-tv-movie" id="org-tv-movie" min="1" max="10" value="5">
+                            <input type="range" name="org-tv-movie" id="org-tv-movie" min="0" max="9" value="5">
                         </div>
                     </div>
                 </div>
@@ -100,5 +96,6 @@
         </div>
     </div>
     <script>init();</script>
+    <script src="orgMod.js" type="module"></script>
 </body>
 </html>

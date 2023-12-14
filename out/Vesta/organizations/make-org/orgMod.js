@@ -21,24 +21,75 @@ const db = getFirestore(app);
 
 document.getElementById("submitBtn").addEventListener("click", () => {
     console.log("submit");
-    let orgData = {
-        "name": document.getElementById("org-name").value,
-        "description": document.getElementById("org-desc").value,
-        "pfp": document.getElementById("org-pfp").value,
-        "email": document.getElementById("org-email").value,
-        "room": document.getElementById("org-room").value,
-        "discord": document.getElementById("org-discord").value,
-        "insta": document.getElementById("org-insta").value,
-        "website": document.getElementById("org-website").value,
-        "interestLevels": {
-            "Academic": document.getElementById("org-academics").value,
-            "Arts": document.getElementById("org-arts").value,
-            "Books": document.getElementById("org-books").value,
-            "Games and Tech": document.getElementById("org-games-tech").value,
-            "Music": document.getElementById("org-music").value,
-            "Sports": document.getElementById("org-sports").value,
-            "TV and Movies": document.getElementById("org-tv-movie").value,
-        }
-    }
+    let orgData = fetchOrgInfo();
+
     setDoc(doc(db, "organizations", document.getElementById("org-name").value), orgData);
+    document.getElementById("submitBtn").disabled = true;
+    setTimeout(() => {
+        window.location.href = "../organizations.html";
+    }, 1000);
 });
+
+function fetchOrgInfo(){
+    let orgData = {
+        "name": "",
+        "description": "",
+        "email": "",
+        "room": "",
+        "discord": "",
+        "insta": "",
+        "website": "bths.edu",
+        "interestLevels": {
+            "Academic": 1,
+            "Arts": 1,
+            "Books": 1,
+            "Games and Tech": 1,
+            "Music": 1,
+            "Sports": 1,
+            "TV and Movies": 1,
+        }
+    };
+    if (document.getElementById("org-name").value != ""){
+        orgData["name"] = document.getElementById("org-name").value;
+    }
+    if (document.getElementById("org-desc").value != ""){
+        orgData["description"] = document.getElementById("org-desc").value;
+    }
+    if (document.getElementById("org-email").value != ""){
+        orgData["email"] = document.getElementById("org-email").value;
+    }
+    if (document.getElementById("org-room").value != ""){
+        orgData["room"] = document.getElementById("org-room").value;
+    }
+    if (document.getElementById("org-discord").value != ""){
+        orgData["discord"] = document.getElementById("org-discord").value;
+    }
+    if (document.getElementById("org-insta").value != ""){
+        orgData["insta"] = document.getElementById("org-insta").value;
+    }
+    if (document.getElementById("org-website").value != ""){
+        orgData["website"] = document.getElementById("org-website").value;
+    }
+    if (document.getElementById("org-academics").value != ""){
+        orgData["interestLevels"]["Academic"] = parseFloat(document.getElementById("org-academics").value)/10;
+    }
+    if (document.getElementById("org-arts").value != ""){
+        orgData["interestLevels"]["Arts"] = parseFloat(document.getElementById("org-arts").value)/10;
+    }
+    if (document.getElementById("org-books").value != ""){
+        orgData["interestLevels"]["Books"] = parseFloat(document.getElementById("org-books").value)/10;
+    }
+    if (document.getElementById("org-games-tech").value != ""){
+        orgData["interestLevels"]["Games and Tech"] = parseFloat(document.getElementById("org-games-tech").value)/10;
+    }
+    if (document.getElementById("org-music").value != ""){
+        orgData["interestLevels"]["Music"] = parseFloat(document.getElementById("org-music").value)/10;
+    }
+    if (document.getElementById("org-sports").value != ""){
+        orgData["interestLevels"]["Sports"] = parseFloat(document.getElementById("org-sports").value)/10;
+    }
+    if (document.getElementById("org-tv-movie").value != ""){
+        orgData["interestLevels"]["TV and Movies"] = parseFloat(document.getElementById("org-tv-movie").value)/10;
+    }
+    return orgData;
+}
