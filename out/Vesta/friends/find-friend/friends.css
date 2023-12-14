@@ -83,7 +83,6 @@ li {
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
-    cursor: pointer;
 }
 
 .account-info-id {
@@ -113,6 +112,7 @@ li {
     font-family: 'PT Sans', sans-serif;
     padding: 5px;
     font-size: 12pt;
+    cursor: pointer;
 }
 
 .other-stuff {
