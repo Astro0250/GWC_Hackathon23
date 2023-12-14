@@ -1,6 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, getDocs, getDoc, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore, collection, getDocs, updateDoc, doc} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -16,40 +15,53 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 const db = getFirestore(app);
 
-let currentUser = null;
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    currentUser = user;
-  }
-});
+async function addInterests()
+{
+    try {
+        const snapshot = await getDocs(collection(db, 'interests'));
 
-function sendToDatabase(interestsArray) {
-    setDoc(doc(db, "users", currentUser.uid), {
-        "interests": interestsArray
-    }, {merge: true});
+        snapshot.docs.forEach(doc => {
+            let div = document.createElement('div');
+            div.innerHTML = doc.id;
+            div.setAttribute("id", doc.id);
+            div.setAttribute("class", "interest-choice");
+            div.setAttribute("selected", "false");
+            div.setAttribute("visible", "true");
+            div.addEventListener("click", (d) => 
+            {
+                if (d.target.getAttribute("selected") == "false")
+                {
+                    d.target.setAttribute("selected", "true");
+                }
+                else
+                {
+                    d.target.setAttribute("selected", "false");
+                }
+            })
+            div.setAttribute("selection-group", doc.data()["selectionGroup"]);
+            document.getElementById('interests-container').appendChild(div);
+        });
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+
+export function sendToDatabase(interestsArray) 
+{
+    console.log(interestsArray);
+    updateDoc(doc(db, "users", sessionStorage.getItem("userID")), {
+        interests: interestsArray
+    });
+    console.log("submitted");
     reroute();
 }
 
-document.getElementById("submit-button").addEventListener("click", function () {
-    console.log("submitting");
-    submitInterests();
-});
-
-let interestsArray = [];
-
-function submitInterests() {
-    let interests = document.getElementsByClassName("Interest-Selected");
-    for (let i = 0; i < interests.length; i++) {
-        let interest = interests[i];
-        interestsArray.push(interest.innerHTML);
-    }
-    console.log(interestsArray);
-    sendToDatabase(interestsArray);
-}
 
 function reroute() {
     window.location.replace("../home/home.html");
 }
+
+addInterests();

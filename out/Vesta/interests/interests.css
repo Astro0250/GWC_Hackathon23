@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
 body {
-    background-color: #ddd;
+    background-color: #0FA3B1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,91 +9,44 @@ body {
     user-select: none;
 }
 
-table {
-    background-color: #fff;
-    border-spacing: .5rem .5rem;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
-    border: 3px solid #333;
-    border-radius: 5px;
-    width: 98vw;
-    height: 90vh;
-}
-
-table thead tr {
+#interests-container
+{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;;
     align-items: center;
-    background-color: #333;
-    color: #fff;
-    margin: 1em;
-    margin-left: 10em;
-    margin-right: 10em;
+    flex-wrap: wrap;
 }
 
-table thead tr th {
-    border-radius: 10px;
-    border: #ddd solid 2px;
-    padding: 1em;
-    cursor: pointer;
+.interest-choice
+{
+    background-color: #B5E2FA88;
+    border-color: #B5E2FA;
+    border: 0.25em;
+    font-size: 2.5em;
+    padding: .25em;
+    margin: .25em;
+    border-radius: .25em;
+    font-family: 'PT Sans';
 }
 
-
-table tbody td {
-    border: 1px solid #333;
-    border-radius: 10px;
-    padding: .5rem;
-    text-align: center; 
-    vertical-align: middle; 
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.interest-choice:hover
+{
+    background-color: #B5E2FA;
 }
 
-table tbody tr {
-    border: 2px solid #333;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
+.interest-choice[visible|="true"]
+{
+    visibility: visible;
 }
 
-thead,
-tfoot {
-    background-color: #333;
-    color: #fff;
+.interest-choice[visible|="false"]
+{
+    visibility: hidden;
 }
 
-.idv {
-    transition-duration: 0.25s;
-}
-
-.idv:hover {
-    background-color: #eee;
-}
-
-.idv:active {
-    background-color: #ddd;
-}
-
-.center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-button{
-    border: solid 2px #333;
-    background-color: #fff;
-    color: #333;
-    border-radius: 5px;
-    padding: 1em;
-    cursor: pointer;
-    margin-top: 1em;
-    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
+.interest-choice[selected|="true"]
+{
+    background-color: #F7A072;
+    visibility: visible;
 }

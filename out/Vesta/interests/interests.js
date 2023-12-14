@@ -1,42 +1,6 @@
-activeTopic = "sports";
-userInterests = {
-    "Sports Interests": [],
-    "Music Interests": [],
-    "Movies Interests": [],
-    "Other Interests": []
-};
 
-function swapTopic(topic) {
-    activeTopic = topic;
-    switch(activeTopic) {
-        case "sports":
-            document.getElementById("Sports Interests").style.display = "table-row-group";
-            document.getElementById("Music Interests").style.display = "none";
-            document.getElementById("Movies Interests").style.display = "none";
-            document.getElementById("Other Interests").style.display = "none";
-            break;
-        case "music":
-            document.getElementById("Sports Interests").style.display = "none";
-            document.getElementById("Music Interests").style.display = "table-row-group";
-            document.getElementById("Movies Interests").style.display = "none";
-            document.getElementById("Other Interests").style.display = "none";
-            break;
-        case "movies":
-            document.getElementById("Sports Interests").style.display = "none";
-            document.getElementById("Music Interests").style.display = "none";
-            document.getElementById("Movies Interests").style.display = "table-row-group";
-            document.getElementById("Other Interests").style.display = "none";
-            break;
-        case "other":
-            document.getElementById("Sports Interests").style.display = "none";
-            document.getElementById("Music Interests").style.display = "none";
-            document.getElementById("Movies Interests").style.display = "none";
-            document.getElementById("Other Interests").style.display = "table-row-group";
-            break;
-    }
-}
-
-function updateInterests(interest, topic) {
+function updateInterests(interest, topic) 
+{
     if (userInterests[topic].includes(interest.innerHTML)) {
         userInterests[topic].splice(userInterests[topic].indexOf(interest.innerHTML));
         interest.className = "Interest-notSelected";
@@ -46,6 +10,31 @@ function updateInterests(interest, topic) {
     }
 }
 
-function submit(){
-    console.log(userInterests);
+function toggleCategory(category)
+{
+    console.log("toggled");
+    divs = document.querySelectorAll(`[selection-group='${category}']`);
+    divs.forEach((div) => {
+        if (div.getAttribute("visible") == "true")
+        {
+            div.setAttribute("visible", "false");
+        }
+        else
+        {
+            div.setAttribute("visible", "true");
+        }
+    });
 }
+
+
+
+import("./interestModule.js").then(({ sendToDatabase }) => {
+    document.getElementById("submit-button").addEventListener("click", () => {
+        selected = document.querySelectorAll(`[selected='true']`);
+        let interests = [];
+        selected.forEach((div) => {
+            interests.push(div.getAttribute("id"));
+        });
+        sendToDatabase(interests);
+    });
+});
