@@ -20,6 +20,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
+let userID = sessionStorage.getItem("userID");
+const orgs = [];
 
 let currentUser = null;
 onAuthStateChanged(auth, (user) => {
@@ -45,3 +47,17 @@ document.getElementById("logoutBtn").addEventListener('click',(e) => {
         console.log(error.message);
     });
 });
+
+async function getUsersOrganizations()
+{
+        const snapshot = await getDocs(collection(db, 'organizations'));
+        snapshot.docs.forEach((doc) => {
+          let div = document.getElementById("sample").cloneNode(true);
+          div.setAttribute("class", "org");
+          div.getElementsByClassName("org-content")[0].getElementsByClassName("org-name")[0].innerHTML = doc.data().name;
+          div.getElementsByClassName("org-content")[0].getElementsByClassName("org-desc")[0].innerHTML = doc.data().description;
+          document.getElementById("org-view").appendChild(div);
+        });
+}
+
+getUsersOrganizations();
