@@ -166,6 +166,10 @@ li {
     background-color: var(--main-color); 
 }
 
+.make-org-content form {
+    width: 100%;
+}
+
 .make-org-header{
     box-sizing: border-box;
     width: 100%;
@@ -186,6 +190,9 @@ li {
     height: 90vh;
     overflow-y: scroll;
     color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .make-org-content::-webkit-scrollbar {
@@ -230,7 +237,30 @@ li {
     border-width: 2px;
 }
 
+.make-org-interest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.make-org-interest h3 {
+    margin: 0;
+}
+
 .category-row {
     display: flex;
     justify-content: space-around;
+}
+
+.make-org-button {
+    background-color: var(--secondary-color);
+    font-size: 24pt;
+    font-family: 'PT Sans', sans-serif;
+    color: var(--highlight-color);
+    border-radius: 15px;
+    border-color: var(--highlight-color);
+    padding: 15px 45px 15px 45px;
+    border-width: 2px;
+    transition-duration: 0.25s;
+    margin: 25px;
 }
