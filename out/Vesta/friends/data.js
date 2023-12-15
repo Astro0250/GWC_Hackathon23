@@ -66,9 +66,7 @@ function openChat(friendID) {
   } else {
     chatID = currentUser.uid + friendID;
   }
-  let newChat = true;
   let chat = null;
-  let messages = null;
   const chatRef = collection(db, 'chats');
   getDocs(chatRef).then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
@@ -79,55 +77,57 @@ function openChat(friendID) {
         setMessages(chat);
       }
     });
-  });
-
-  if (chat == null) {
-    const chatRef = collection(db, 'chats');
-    setDoc(doc(chatRef, chatID), {
-      messages: [
-      {
-        message:{
-            content: "Welcome to your new chat!",
-            owner: "System"
+    if (chat == null) {
+      const chatRef = collection(db, 'chats');
+      setDoc(doc(chatRef, chatID), {
+        messages: [
+        {
+          message:{
+              content: "Welcome to your new chat!",
+              owner: "System"
+          }
         }
-      }
-    ]
-    });
-    getDocs(chatRef).then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        if (doc.id == chatID) {
-          chat = doc.data();
-          currentChat = chat;
-          console.log(chat['messages']);
-          setMessages(chat);
-        }
+      ]
       });
-    });
-  }
+      getDocs(chatRef).then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          if (doc.id == chatID) {
+            chat = doc.data();
+            currentChat = chat;
+            console.log(chat['messages']);
+            setMessages(chat);
+          }
+        });
+      });
+    }
+  });
 }
 function setMessages(chat) {
   let messages = chat['messages'];
   let sample = document.querySelector("#sampleMessage");
   messages.forEach((post) => {
     let clone = sample.cloneNode(true);
-    document.getElementById("messages").append(clone);
-    clone.getElementsByClassName('content')[0].getElementsByClassName('message-content')[0].innerHTML = post['content'];
     clone.getElementsByClassName('content')[0].getElementsByClassName('username')[0].innerHTML = post['owner'];
+    clone.getElementsByClassName('content')[0].getElementsByClassName('message-content')[0].innerHTML = post['content'];
     clone.style.display = "static";
+    clone.id = "not-sample";
+    document.getElementById("messages").append(clone);
   });
 }
 
 document.getElementById('sendBtn').addEventListener('click', (e) => {
-  let message = document.getElementById('messageInput').value;
+  let messagee = document.getElementById('messageInput').value;
   document.getElementById('messageInput').value = "";
   let messageElement = document.createElement('div');
   messageElement.classList.add('message');
-  messageElement.innerHTML = message;
+  messageElement.innerHTML = messagee;
   document.getElementById('messages').appendChild(messageElement);
   
   currentChat['messages'].push({
-    content: message,
-    owner: currentUser.displayName
+    message: {
+      content: messagee,
+      owner: currentUser.displayName
+    }
   });
   setDoc(doc(db, "chats", chatID), {
     messages: currentChat['messages']

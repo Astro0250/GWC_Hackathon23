@@ -45,6 +45,7 @@ function sortPostsByDate(posts) {
 }
 function setPosts(posts) {
     posts.forEach((post) => {
+        console.log(post);
         let clone = sample.cloneNode(true);
         document.getElementById("feed").append(clone);
         clone.getElementsByClassName('pfp')[0].getElementsByClassName("account-info-pfp")[0].src = post['pfp'];
