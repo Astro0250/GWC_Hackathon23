@@ -1,0 +1,57 @@
+.sample, .sample-interest-tag
+{
+    display: none;
+}
+
+.friend-rec
+{
+    display: block;
+    background-color: blue;
+    border-radius: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.name
+{
+    padding-left: 1em;
+    display: block;
+    font-size: 1.5em;
+    background-color: aqua;
+    border-radius: 0.5em 0.5em 0 0;
+    margin-bottom: 0.5em;
+}
+
+.interests
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.interest-tag
+{
+    font-size: 1em;
+    padding: 0.25em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    background-color: darkgrey;
+    border-radius: 1em;
+    margin: 0.1em;
+}
+
+#friend-recommendations
+{
+    display: flex;
+}
+
+.add-button
+{
+    background-color: cadetblue;
+    font-size: 1em;
+    margin: 0.25em;
+    margin-left: 0.5em;
+    border-radius: 1em;
+    border: none;
+}
+

@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, collection, getDocs, updateDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 // Your web app's Firebase configuration
@@ -19,7 +19,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const users = new Map();
-const userID = "GjSpCmxE9yaBjgGVkDXZ0hUKjJf1" //sessionStorage.getItem("userID")
+const userID = sessionStorage.getItem("userID");
 const categories = ["arts","academics","books","music","games-and-technology","tv-and-movies","sports"];
 const compatabilityMap = new Map();
 
@@ -35,15 +35,6 @@ async function getAllUsers()
     } catch (error) {
         console.error(error.message);
     }
-}
-    
-async function getCategories()
-{
-    const snapshot = await getDocs(collection(db, 'interests-categories'));
-    snapshot.docs.forEach(doc => 
-        {
-            categories.push(doc.id);
-        });
 }
 
 function calculateCompatabilityScore(loggedInUser, other)
@@ -69,13 +60,50 @@ function calculateCompatabilityScore(loggedInUser, other)
 }
   
 
-(async () => {
+async function getCompatability()
+{
     await getAllUsers();
-    await getCategories();
-    console.log(users);
     users.forEach((val, key) => compatabilityMap.set(key, calculateCompatabilityScore(userID, key)));
-})();
+    compatabilityMap.forEach((val, key) => 
+    {
+        if (val != null)
+        {
+            let div = document.getElementById("sample-friend-recommendation").cloneNode(true);
+            div.getElementsByClassName("name")[0].innerHTML = users.get(key).name;
+            div.setAttribute("class", "friend-rec");
+            let addButton = document.createElement("button");
+            addButton.innerHTML = "Add";
+            addButton.setAttribute("class", "add-button");
+            addButton.setAttribute("target", key);
+            addButton.addEventListener("click", (e) =>
+            {
+                if (!users.get(userID).friends.includes(e.target.getAttribute("target")))
+                {
+                    addToFriendsList(e.target.getAttribute("target"));
+                }
+            });
+            div.getElementsByClassName("name")[0].appendChild(addButton);
+            div.style.order = val;
+            users.get(key).interests.forEach((interest) => 
+            {
+                let intTag = div.getElementsByClassName("sample-interest-tag")[0].cloneNode();
+                intTag.innerHTML = interest;
+                intTag.setAttribute("class", "interest-tag");
+                div.getElementsByClassName("interests")[0].appendChild(intTag);
+            });
+            console.log(val);
+            document.getElementById("friends-container").appendChild(div);
+        }
+    });
+}
 
-console.log()
+async function addToFriendsList(id)
+{
+    users.get(userID).friends.push(id);
+    await updateDoc(doc(db, "users", userID), {
+        friends: users.get(userID).friends
+    });
+}
 
+getCompatability();
 
