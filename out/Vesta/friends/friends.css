@@ -252,3 +252,8 @@ h1 {
     border-radius: 30px;
     color: var(--text-color);
 }
+
+.sample-friend
+{
+    display: none;
+}
