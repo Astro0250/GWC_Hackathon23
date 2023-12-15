@@ -20,7 +20,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
-const userID = sessionStorage.getItem("userID"); 
+const userID = sessionStorage.getItem("userID");
 
 const users = new Map();
 
@@ -71,13 +71,13 @@ function openChat(friendID) {
       const chatRef = collection(db, 'chats');
       setDoc(doc(chatRef, chatID), {
         messages: [
-        {
-          message:{
+          {
+            message: {
               content: "Welcome to your new chat!",
               owner: "System"
+            }
           }
-        }
-      ]
+        ]
       });
       getDocs(chatRef).then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -133,38 +133,36 @@ document.getElementById('sendBtn').addEventListener('click', (e) => {
   });
 });
 
-async function getAllUsers()
-{
-    try {
-        const snapshot = await getDocs(collection(db, 'users'));
+async function getAllUsers() {
+  try {
+    const snapshot = await getDocs(collection(db, 'users'));
 
-        snapshot.docs.forEach(doc => {
-            users.set(doc.id, doc.data());
-        });
-    } catch (error) {
-        console.error(error.message);
-    }
+    snapshot.docs.forEach(doc => {
+      users.set(doc.id, doc.data());
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
 }
 
-async function addUsers()
-{
-    await getAllUsers();
-    users.get(userID).friends.forEach((friend) => {
-      let div = document.getElementById("friend").cloneNode(true);
-      div.setAttribute("class", "friend");
-      div.getElementsByClassName("content")[0].getElementsByClassName("username")[0].innerHTML = users.get(friend).name;
-      div.getElementsByClassName("pfp")[0].getElementsByClassName("pfpimg")[0].setAttribute("src",users.get(friend).profileurl);
-      document.getElementById("friend-list").appendChild(div);
+async function addUsers() {
+  await getAllUsers();
+  users.get(userID).friends.forEach((friend) => {
+    let div = document.getElementById("friend").cloneNode(true);
+    div.setAttribute("class", "friend");
+    div.getElementsByClassName("content")[0].getElementsByClassName("username")[0].innerHTML = users.get(friend).name;
+    div.getElementsByClassName("pfp")[0].getElementsByClassName("pfpimg")[0].setAttribute("src", users.get(friend).profileurl);
+    document.getElementById("friend-list").appendChild(div);
+  });
+  const friendElements = document.querySelectorAll('.friend');
+  console.log("friends:" + friendElements.entries());
+  friendElements.forEach((element) => {
+    element.addEventListener('click', (event) => {
+      console.log("clicked");
+      document.getElementById('chatOverlay').style.display = "flex";
+      openChat(event.target.getElementsByClassName('username')[0].innerHTML);
     });
+  });
 }
 
 addUsers();
-friendElements = document.querySelectorAll('.friend');
-console.log("friends:" + friendElements.entries());
-friendElements.forEach((element) => {
-  element.addEventListener('click', (event) => {
-    console.log("clicked");
-    document.getElementById('chatOverlay').style.display = "flex";
-    openChat(event.target.getElementsByClassName('username')[0].innerHTML);
-  });
-});
