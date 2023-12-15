@@ -2,8 +2,27 @@
 <html>
     <head>
         <link rel="stylesheet" href="friends.css">
+        <script src="friends.js"></script>
     </head>
     <body>
+        <div class="header">
+            <nav class="header-nav">
+                <ul>
+                    <li><div><a href="../../home/home.html">Home</a></div></li>
+                    <li><div><a href="../../friends/friends.html">Friends</a></div></li>
+                    <li><div><a href="../../organizations/organizations.html">Organizations</a></div></li>
+                    <li><div><a href="../../about/about.html">About</a></div></li>
+                </ul>
+            </nav>
+            <div class="account-info">
+                <div class="account-info-id">
+                    <img class="account-info-pfp" id="accPFP" src="https://static.thenounproject.com/png/5034901-200.png" />
+                    <p>Logged in as <b id="accUsername">N/A</b></p>
+                </div>
+                <button id="logoutBtn" class="logout">Log out</button>
+            </div>
+        </div>
+
         <div id="sample-friend-recommendation" class="sample"> 
             <div class="name">
                 Sample Person
@@ -12,8 +31,20 @@
                 <div class="sample-interest-tag"></div>
             </div>
         </div>
-        <div id="friends-container">
+        
+        <div class="recs">
+            <div class="recs-header">
+                <h1>Friendr</h1>
+            </div>
+            <div id="friends-container"></div>
+        </div>
             
+        <div class="other-stuff">
+            <h1>Friend Actions</h1>
+            <div class="friend-actions">
+                <button id="find-friends" onclick="reroute(1)">Find Friends</button>
+                <button id="friend-tinder" onclick="reroute(2)">Friendr</button>
+            </div>
         </div>
         <script type="module" src="recommendations.js"></script>
     </body>
