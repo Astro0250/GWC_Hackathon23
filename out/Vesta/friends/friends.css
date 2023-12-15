@@ -233,3 +233,22 @@ li {
 h1 {
     margin: 0;
 }
+
+
+.create-post-bg {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(105, 105, 105, 0.4);
+}
+
+.create-post {
+    width: 60vw;
+    height: 80vh;
+    background-color: var(--main-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 30px;
+    color: var(--text-color);
+}

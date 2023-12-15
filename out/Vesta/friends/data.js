@@ -7,14 +7,14 @@ import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/fi
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyCQ8iXyIxgK-H7_00BcHHlJPs8KpcU1hCE",
-    authDomain: "friendr-13d6c.firebaseapp.com",
-    databaseURL: "https://friendr-13d6c-default-rtdb.firebaseio.com",
-    projectId: "friendr-13d6c",
-    storageBucket: "friendr-13d6c.appspot.com",
-    messagingSenderId: "770859054230",
-    appId: "1:770859054230:web:d792d2624b35c6d4e93eb7",
-    measurementId: "G-PVSNCXGSB6"
+  apiKey: "AIzaSyCQ8iXyIxgK-H7_00BcHHlJPs8KpcU1hCE",
+  authDomain: "friendr-13d6c.firebaseapp.com",
+  databaseURL: "https://friendr-13d6c-default-rtdb.firebaseio.com",
+  projectId: "friendr-13d6c",
+  storageBucket: "friendr-13d6c.appspot.com",
+  messagingSenderId: "770859054230",
+  appId: "1:770859054230:web:d792d2624b35c6d4e93eb7",
+  measurementId: "G-PVSNCXGSB6"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -36,12 +36,19 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-document.getElementById("logoutBtn").addEventListener('click',(e) => {
-    signOut(auth)
+document.getElementById("logoutBtn").addEventListener('click', (e) => {
+  signOut(auth)
     .then(() => {
-        window.location.replace("../sign up/signup.html");
+      window.location.replace("../sign up/signup.html");
     })
     .catch((error) => {
-        console.log(error.message);
+      console.log(error.message);
     });
+});
+
+document.getElementsByClassName("friend").array.forEach(element => {
+  element.addEventListener('click', (e) => {
+    postOverlay.style.display = "block";
+    console.log("rah");
+  });
 });
