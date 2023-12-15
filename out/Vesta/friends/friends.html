@@ -11,10 +11,18 @@
     <div class="header">
         <nav class="header-nav">
             <ul>
-                <li><div><a href="../home/home.html">Home</a></div></li>
-                <li><div><a href="../friends/friends.html">Friends</a></div></li>
-                <li><div><a href="../organizations/organizations.html">Organizations</a></div></li>
-                <li><div><a href="../about/about.html">About</a></div></li>
+                <li>
+                    <div><a href="../home/home.html">Home</a></div>
+                </li>
+                <li>
+                    <div><a href="../friends/friends.html">Friends</a></div>
+                </li>
+                <li>
+                    <div><a href="../organizations/organizations.html">Organizations</a></div>
+                </li>
+                <li>
+                    <div><a href="../about/about.html">About</a></div>
+                </li>
             </ul>
         </nav>
         <div class="account-info">
@@ -33,7 +41,8 @@
         <div class="friend-list">
             <div class="friend" id="cK1BXWxjKcWrpgIbgqrR8JIKLVu1">
                 <div class="pfp">
-                    <img src="https://lh3.googleusercontent.com/a/ACg8ocI0nuyAnNS-QMbIaLL_xk-j9UWl_fZ6CFF9ewG7LNzGErY=s96-c">
+                    <img
+                        src="https://lh3.googleusercontent.com/a/ACg8ocI0nuyAnNS-QMbIaLL_xk-j9UWl_fZ6CFF9ewG7LNzGErY=s96-c">
                 </div>
                 <div class="content">
                     <h1 class="username">Christian B</h1>
@@ -51,13 +60,20 @@
         </div>
     </div>
 
-    <div id="postOverlay" class="center create-post-bg" style="display: none;">
-        <div class="center create-post">
-            <h1>Create a post</h1>
-            <textarea id="postContent" class="post-box" cols="30" rows="10" placeholder="What's on your mind?"></textarea>
-            <div class="post-buttons">
-                <button id="cancelBtn" class="post-button">Cancel</button>
-                <button id="postBtn" class="post-button">Post</button>
+    <div id="chatOverlay" class="chat-bg" style="display: none;">
+        <div class="center chat">
+            <h1>Chat</h1>
+            <div class="messages" id="messages">
+                <div class="message" id="sampleMessage" style="display: none;">
+                    <div class="content">
+                        <h1 class="username">Astro</h1>
+                        <p class="message-content">JYHTRFJUTMJGRFKUTMJRFKUJTYFKUJTFKUTJFHGLTUFDIYJ</p>
+                    </div>
+                </div>
+            </div>
+            <div class="message-input">
+                <input type="text" id="messageInput" placeholder="Message...">
+                <button id="sendBtn">Send</button>
             </div>
         </div>
     </div>

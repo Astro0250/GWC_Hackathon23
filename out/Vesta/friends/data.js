@@ -21,7 +21,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
 
-let currentUser = null;
+var currentUser = null;
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // https://firebase.google.com/docs/reference/js/auth.user
@@ -46,9 +46,87 @@ document.getElementById("logoutBtn").addEventListener('click', (e) => {
     });
 });
 
-document.getElementsByClassName("friend").forEach(element => {
-  element.addEventListener('click', (e) => {
-    postOverlay.style.display = "block";
-    console.log("rah");
+const friendElements = document.querySelectorAll('.friend');
+console.log("friends:" + friendElements);
+friendElements.forEach((element) => {
+  element.addEventListener('click', (event) => {
+    console.log("clicked");
+    document.getElementById('chatOverlay').style.display = "flex";
+    openChat(event.target.id);
+  });
+});
+let currentChat = null;
+let chatID = null;
+function openChat(friendID) {
+  if (friendID.localeCompare(currentUser.uid) >= 0) {
+    chatID = friendID + currentUser.uid;
+  } else {
+    chatID = currentUser.uid + friendID;
+  }
+  let newChat = true;
+  let chat = null;
+  let messages = null;
+  const chatRef = collection(db, 'chats');
+  getDocs(chatRef).then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      if (doc.id == chatID) {
+        chat = doc.data();
+        currentChat = chat;
+        console.log(chat);
+        setMessages(chat);
+      }
+    });
+  });
+
+  if (chat == null) {
+    const chatRef = collection(db, 'chats');
+    setDoc(doc(chatRef, chatID), {
+      messages: [
+      {
+        message:{
+            content: "Welcome to your new chat!",
+            owner: "System"
+        }
+      }
+    ]
+    });
+    getDocs(chatRef).then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        if (doc.id == chatID) {
+          chat = doc.data();
+          currentChat = chat;
+          console.log(chat['messages']);
+          setMessages(chat);
+        }
+      });
+    });
+  }
+}
+function setMessages(chat) {
+  let messages = chat['messages'];
+  let sample = document.querySelector("#sampleMessage");
+  messages.forEach((post) => {
+    let clone = sample.cloneNode(true);
+    document.getElementById("messages").append(clone);
+    clone.getElementsByClassName('content')[0].getElementsByClassName('message-content')[0].innerHTML = post['content'];
+    clone.getElementsByClassName('content')[0].getElementsByClassName('username')[0].innerHTML = post['owner'];
+    clone.style.display = "static";
+  });
+}
+
+document.getElementById('sendBtn').addEventListener('click', (e) => {
+  let message = document.getElementById('messageInput').value;
+  document.getElementById('messageInput').value = "";
+  let messageElement = document.createElement('div');
+  messageElement.classList.add('message');
+  messageElement.innerHTML = message;
+  document.getElementById('messages').appendChild(messageElement);
+  
+  currentChat['messages'].push({
+    content: message,
+    owner: currentUser.displayName
+  });
+  setDoc(doc(db, "chats", chatID), {
+    messages: currentChat['messages']
   });
 });
