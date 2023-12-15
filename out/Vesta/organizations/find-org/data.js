@@ -39,7 +39,7 @@ onAuthStateChanged(auth, (user) => {
 document.getElementById("logoutBtn").addEventListener('click',(e) => {
     signOut(auth)
     .then(() => {
-        window.location.replace("../sign up/signup.html");
+        window.location.replace("../../sign up/signup.html");
     })
     .catch((error) => {
         console.log(error.message);

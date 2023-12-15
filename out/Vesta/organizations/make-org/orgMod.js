@@ -31,7 +31,7 @@ onAuthStateChanged(auth, (user) => {
         accPFP.src = user.photoURL;
         sessionStorage.setItem("userID", uid);
     } else {
-        window.location.replace("../sign up/signup.html");
+        window.location.replace("../../sign up/signup.html");
     }
 });
 
