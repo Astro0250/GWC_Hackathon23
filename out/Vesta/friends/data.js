@@ -50,7 +50,7 @@ document.getElementById("logoutBtn").addEventListener('click', (e) => {
 });
 
 const friendElements = document.querySelectorAll('.friend');
-console.log("friends:" + friendElements);
+console.log("friends:" + friendElements.entries());
 friendElements.forEach((element) => {
   element.addEventListener('click', (event) => {
     console.log("clicked");
@@ -169,3 +169,12 @@ async function addUsers()
 }
 
 addUsers();
+friendElements = document.querySelectorAll('.friend');
+console.log("friends:" + friendElements.entries());
+friendElements.forEach((element) => {
+  element.addEventListener('click', (event) => {
+    console.log("clicked");
+    document.getElementById('chatOverlay').style.display = "flex";
+    openChat(event.target.getElementsByClassName('username')[0].innerHTML);
+  });
+});
