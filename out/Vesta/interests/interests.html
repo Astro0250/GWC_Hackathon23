@@ -6,16 +6,31 @@
 </head>
 <body>
     <div id="header">
-        <button target="tv-and-movies" open="true" class="category-btn" onclick="toggleCategory(this.getAttribute('target'));">Movies</button>
-        <button target="sports" open="true" class="category-btn" onclick="toggleCategory(this.getAttribute('target'));">Sports</button>
-        <button target="music" open="true" class="category-btn" onclick="toggleCategory(this.getAttribute('target'));">Music</button>
-        <button target="arts" open="true" class="category-btn" onclick="toggleCategory(this.getAttribute('target'));">Arts</button>
-        <button target="books" open="true" class="category-btn" onclick="toggleCategory(this.getAttribute('target'));">Books</button>
-        <button target="academics" open="true" class="category-btn" onclick="toggleCategory(this.getAttribute('target'));">Academics</button>
-        <button target="games-and-technology" open="true" class="category-btn" onclick="toggleCategory(this.getAttribute('target'));">Academics</button>
+        <h1>Filters</h1>
+        <button id="tv" target="tv-and-movies" open="true" class="category-btn on" onclick="toggleCategory(this.getAttribute('target'), 'tv');">Movies</button>
+        <button id="sports" target="sports" open="true" class="category-btn on" onclick="toggleCategory(this.getAttribute('target'), 'sports');">Sports</button>
+        <button id="music" target="music" open="true" class="category-btn on" onclick="toggleCategory(this.getAttribute('target'), 'music');">Music</button>
+        <button id="arts" target="arts" open="true" class="category-btn on" onclick="toggleCategory(this.getAttribute('target'), 'arts');">Arts</button>
+        <button id="books" target="books" open="true" class="category-btn on" onclick="toggleCategory(this.getAttribute('target'), 'books');">Books</button>
+        <button id="academics" target="academics" open="true" class="category-btn on" onclick="toggleCategory(this.getAttribute('target'), 'academics');">Academics</button>
+        <button id="games" target="games-and-technology" open="true" class="category-btn on" onclick="toggleCategory(this.getAttribute('target'), 'games');">Games and Tech</button>
     </div>
-    <div id="interests-container"> </div>
-    <button id="submit-button">Submit</button>
+    
+    <div class="interests">
+        <div class="interest-header">
+            <h1>Choose your Interests</h1>
+        </div>
+        <div id="interests-container"> </div>
+    </div>
+
+    <div id="footer">
+        <div class="logo">
+            <h1>Vesta</h1>
+            <p>for Brooklyn Tech</p>
+        </div>
+        <button id="submit-button">Continue to Vesta</button>
+    </div>
+    
     <script type="module" src="interestModule.js"></script>
     <script src="interests.js"></script>
 </body>
