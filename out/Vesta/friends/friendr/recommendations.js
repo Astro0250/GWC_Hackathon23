@@ -83,7 +83,7 @@ async function getCompatability()
                 }
             });
             div.getElementsByClassName("name")[0].appendChild(addButton);
-            div.style.order = val;
+            div.style.order = 1-val;
             users.get(key).interests.forEach((interest) => 
             {
                 let intTag = div.getElementsByClassName("sample-interest-tag")[0].cloneNode();
