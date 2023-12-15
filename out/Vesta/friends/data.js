@@ -20,7 +20,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
-const userID = sessionStorage.getItem("userID");
+const userID = sessionStorage.getItem("userID"); 
+
 const users = new Map();
 
 let currentUser = null;
@@ -34,7 +35,7 @@ onAuthStateChanged(auth, (user) => {
     accPFP.src = user.photoURL;
     sessionStorage.setItem("userID", uid);
   } else {
-    //window.location.replace("../sign up/signup.html");
+    window.location.replace("../sign up/signup.html");
   }
 });
 
