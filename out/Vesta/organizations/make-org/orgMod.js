@@ -31,8 +31,18 @@ onAuthStateChanged(auth, (user) => {
         accPFP.src = user.photoURL;
         sessionStorage.setItem("userID", uid);
     } else {
-        window.location.replace("../sign up/signup.html");
+        window.location.replace("../../sign up/signup.html");
     }
+});
+
+document.getElementById("logoutBtn").addEventListener('click', (e) => {
+    signOut(auth)
+        .then(() => {
+            window.location.replace("../../sign up/signup.html");
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
 });
 
 document.getElementById("submitBtn").addEventListener("click", () => {

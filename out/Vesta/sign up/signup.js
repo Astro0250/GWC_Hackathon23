@@ -24,6 +24,7 @@ const db = getFirestore(app);
 getRedirectResult(auth)
 .then((result) => {
     const user = result.user;
+    sessionStorage.setItem("userID", user.uid);
     if (getAdditionalUserInfo(result).isNewUser) {
             document.getElementById("googleBtn").style.display = "none";
 
