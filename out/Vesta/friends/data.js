@@ -49,15 +49,6 @@ document.getElementById("logoutBtn").addEventListener('click', (e) => {
     });
 });
 
-const friendElements = document.querySelectorAll('.friend');
-console.log("friends:" + friendElements.entries());
-friendElements.forEach((element) => {
-  element.addEventListener('click', (event) => {
-    console.log("clicked");
-    document.getElementById('chatOverlay').style.display = "flex";
-    openChat(event.target.getElementsByClassName('username')[0].innerHTML);
-  });
-});
 let currentChat = null;
 let chatID = null;
 function openChat(friendID) {
@@ -159,13 +150,12 @@ async function addUsers()
 {
     await getAllUsers();
     users.get(userID).friends.forEach((friend) => {
-      let div = document.getElementById("sample-friend").cloneNode(true);
+      let div = document.getElementById("friend").cloneNode(true);
       div.setAttribute("class", "friend");
       div.getElementsByClassName("content")[0].getElementsByClassName("username")[0].innerHTML = users.get(friend).name;
       div.getElementsByClassName("pfp")[0].getElementsByClassName("pfpimg")[0].setAttribute("src",users.get(friend).profileurl);
       document.getElementById("friend-list").appendChild(div);
     });
-    
 }
 
 addUsers();
