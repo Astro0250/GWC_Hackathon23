@@ -35,6 +35,16 @@ onAuthStateChanged(auth, (user) => {
     }
 });
 
+document.getElementById("logoutBtn").addEventListener('click', (e) => {
+    signOut(auth)
+        .then(() => {
+            window.location.replace("../../sign up/signup.html");
+        })
+        .catch((error) => {
+            console.log(error.message);
+        });
+});
+
 document.getElementById("submitBtn").addEventListener("click", () => {
     console.log("submit");
     let orgData = fetchOrgInfo();
