@@ -24,7 +24,6 @@ body {
     background-color: var(--back-color);
     font-family: 'PT Sans', sans-serif;
     display: flex;
-padding:100%
 }
 
 .header {
@@ -37,32 +36,27 @@ padding:100%
     justify-content: space-between;
     color: var(--text-color);
     border-right: var(--border-col) 1px solid;
-padding:100%
 }
 
 .header-nav ul {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-padding:100%
 }
 
 .header-nav li a {
     color: var(--text-color);
     text-decoration: none;
-padding:100%
 }
 
 .header-nav div {
     width: 0%;
     background-color: var(--dark-highlight-color);
     transition-duration: 0.25s;
-padding:100%
 }
 
 .header-nav li div:hover {
     width: 100%;
-padding:100%
 }
 
 ul {
@@ -74,7 +68,6 @@ ul {
     margin-inline-end: 0px;
     padding-left: 20px;
     padding-right: 20px;
-padding:100%
 }
 
 li {
@@ -82,7 +75,6 @@ li {
     padding: 10px;
     font-size: 30px;
     color: var(--text-color);
-padding:100%
 }
 
 .account-info {
@@ -92,30 +84,25 @@ padding:100%
     align-items: center;
     margin-bottom: 20px;
     cursor: pointer;
-padding:100%
 }
 
 .account-info-id {
     display: flex;
     margin-bottom: 10px;
-padding:100%
 }
 
 .account-info-id p {
     margin-left: 10px;
-padding:100%
 }
 
 .account-info-pfp {
     width: 50px;
     height: 50px;
     border-radius: 15px;
-padding:100%
 }
 
 #accUsername {
     color: var(--highlight-color);
-padding:100%
 }
 
 .logout {
@@ -126,7 +113,6 @@ padding:100%
     font-family: 'PT Sans', sans-serif;
     padding: 5px;
     font-size: 12pt;
-padding:100%
 }
 
 .other-stuff {
@@ -138,19 +124,16 @@ padding:100%
     align-items: center;
     border-left: var(--border-col) 1px solid;
     color: var(--text-color);
-padding:100%
 }
 
 .other-stuff h1 {
     margin: 25px;
     text-align: center;
-padding:100%
 }
 
 .org-actions{
     display: flex;
     flex-direction: column;
-padding:100%
 }
 
 .org-actions button {
@@ -165,17 +148,14 @@ padding:100%
     transition-duration: 0.25s;
     margin: 0 25px 25px 25px;
     width: 80%;
-padding:100%
 }
 
 .org-actions button:hover {
     background-color: var(--tertiary-color);
-padding:100%
 }
 
 .org-actions button:active {
     background-color: var(--tertiary-color);
-padding:100%
 }
 
 .make-org{
@@ -184,7 +164,6 @@ padding:100%
     width: 60vw;
     height: 100vh;
     background-color: var(--main-color); 
-padding:100%
 }
 
 .make-org-content form {
@@ -200,13 +179,11 @@ padding:100%
     justify-content: center;
     align-items: center;
     border-bottom: var(--border-col) 1px solid;
-padding:100%
 }
 
 .make-org-header h1 {
     margin: 0;
     color: var(--text-color);
-padding:100%
 }
 
 .make-org-content {
@@ -220,7 +197,6 @@ padding:100%
 
 .make-org-content::-webkit-scrollbar {
     display: none;
-padding:100%
 }
 
 .make-org-input {
@@ -234,13 +210,11 @@ padding:100%
     background-color: var(--secondary-color);
     border-radius: 10px;
     transition-duration: 0.2s;
-padding:100%
 }
 
 .make-org-input h2 {
     margin: 0 0 15px 0;
     font-size: 20pt;
-padding:100%
 }
 
 .make-org-input input {
@@ -249,7 +223,6 @@ padding:100%
     border-radius: 10px;
     background-color: var(--tertiary-color);
     color: rgb(228, 216, 247);
-padding:100%
 }
 
 .make-org-input textarea {
@@ -262,7 +235,6 @@ padding:100%
     resize: none;
     border-style: inset;
     border-width: 2px;
-padding:100%
 }
 
 .make-org-interest {
@@ -278,7 +250,6 @@ padding:100%
 .category-row {
     display: flex;
     justify-content: space-around;
-padding:100%
 }
 
 .make-org-button {
