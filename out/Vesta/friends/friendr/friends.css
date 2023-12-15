@@ -12,6 +12,7 @@
     --highlight-color: #C2AFF0;
     --dark-highlight-color: rgb(96, 73, 148);
     --red: #b96880;
+    --green: #68b993;
     
     --text-color: var(--quaternary-color);
     --back-color: var(--main-color);
@@ -185,23 +186,61 @@ li {
     display: none;
 }
 
+#friends-container {
+    height: 90vh;
+    overflow-y: scroll;
+}
+
+#friends-container::-webkit-scrollbar {
+    display: none;
+}
+
 .friend-rec
 {
-    display: block;
-    background-color: blue;
-    border-radius: 1em;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin: 7px 7px 0 7px;
+    display: flex;
+    flex-direction: row;
+    padding: 2em;
+    padding-left: 5em;
+    padding-right: 5em;
+    height: fit-content;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    transition-duration: 0.2s;
+}
+
+.pfp
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
 }
 
 .name
 {
-    padding-left: 1em;
-    display: block;
-    font-size: 1.5em;
-    background-color: aqua;
-    border-radius: 0.5em 0.5em 0 0;
-    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: rgb(210, 197, 232);
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px 10px 20px;
+}
+
+.below-name
+{
+    display: flex;
+    margin: 0 20px 0px 20px;
+    color: var(--highlight-color);
+    font-size: 18px;
+    border: var(--quaternary-color) 2px inset;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: var(--light-secondary-color);
+}
+
+.below-name p {
+    margin: 0;
+    font-weight: bold;
 }
 
 .interests
@@ -213,13 +252,7 @@ li {
 
 .interest-tag
 {
-    font-size: 1em;
-    padding: 0.25em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    background-color: darkgrey;
-    border-radius: 1em;
-    margin: 0.1em;
+    margin: 0 0 10px 10px;
 }
 
 #friend-recommendations
@@ -229,11 +262,26 @@ li {
 
 .add-button
 {
-    background-color: cadetblue;
-    font-size: 1em;
-    margin: 0.25em;
-    margin-left: 0.5em;
-    border-radius: 1em;
-    border: none;
+    background-color: var(--tertiary-color);
+    color: var(--green);
+    border-radius: 10px;
+    border-color: var(--green);
+    font-family: 'PT Sans', sans-serif;
+    padding: 5px;
+    font-size: 12pt;
+    height: 100%;
+    cursor: pointer;
+    transition-duration: 0.25s;
+    margin-left: 25px;
+}
+
+.add-button:hover
+{
+    background-color: #5c576d;
+}
+
+.add-button:active
+{
+    background-color: #5c576d;
 }
 

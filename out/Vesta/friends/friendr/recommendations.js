@@ -22,6 +22,22 @@ const users = new Map();
 const userID = sessionStorage.getItem("userID");
 const categories = ["arts","academics","books","music","games-and-technology","tv-and-movies","sports"];
 const compatabilityMap = new Map();
+const auth = getAuth();
+
+let currentUser = null;
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // https://firebase.google.com/docs/reference/js/auth.user
+    const uid = user.uid;
+    currentUser = user;
+    //localStorage.set("userID", uid);
+    accUsername.innerHTML = user.displayName;
+    accPFP.src = user.photoURL;
+    sessionStorage.setItem("userID", uid);
+  } else {
+    window.location.replace("../sign up/signup.html");
+  }
+});
 
 async function getAllUsers()
 {
@@ -70,6 +86,7 @@ async function getCompatability()
         {
             let div = document.getElementById("sample-friend-recommendation").cloneNode(true);
             div.getElementsByClassName("name")[0].innerHTML = users.get(key).name;
+            div.getElementsByClassName("pfp")[0].src = users.get(key).profileurl;
             div.setAttribute("class", "friend-rec");
             let addButton = document.createElement("button");
             addButton.innerHTML = "Add";
