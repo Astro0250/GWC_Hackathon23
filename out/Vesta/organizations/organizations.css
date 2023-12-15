@@ -235,3 +235,8 @@ li {
 .org-actions button:active {
     background-color: var(--tertiary-color);
 }
+
+.sample-org
+{
+    display: none;
+}
