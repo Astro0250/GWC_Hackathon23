@@ -46,7 +46,7 @@ document.getElementById("logoutBtn").addEventListener('click', (e) => {
     });
 });
 
-document.getElementsByClassName("friend").array.forEach(element => {
+document.getElementsByClassName("friend").forEach(element => {
   element.addEventListener('click', (e) => {
     postOverlay.style.display = "block";
     console.log("rah");
