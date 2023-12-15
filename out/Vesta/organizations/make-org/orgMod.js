@@ -19,6 +19,22 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+const auth = getAuth();
+let currentUser = null;
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const uid = user.uid;
+        currentUser = user;
+        //localStorage.set("userID", uid);
+        accUsername.innerHTML = user.displayName;
+        accPFP.src = user.photoURL;
+        sessionStorage.setItem("userID", uid);
+    } else {
+        window.location.replace("../sign up/signup.html");
+    }
+});
+
 document.getElementById("submitBtn").addEventListener("click", () => {
     console.log("submit");
     let orgData = fetchOrgInfo();

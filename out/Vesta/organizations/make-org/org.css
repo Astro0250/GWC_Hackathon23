@@ -264,3 +264,11 @@ li {
     transition-duration: 0.25s;
     margin: 25px;
 }
+
+.make-org-button:hover {
+    background-color: var(--tertiary-color);
+}
+
+.make-org-button:hover {
+    background-color: var(--tertiary-color);
+}
