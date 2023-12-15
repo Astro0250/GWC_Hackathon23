@@ -10,18 +10,28 @@ function updateInterests(interest, topic)
     }
 }
 
-function toggleCategory(category)
+function toggleCategory(category, id)
 {
     console.log("toggled");
+
+    if(document.getElementById(id).className.includes("on"))
+    {
+        document.getElementById(id).className = "category-btn off";
+    }
+    else
+    {
+        document.getElementById(id).className = "category-btn on";
+    }
+
     divs = document.querySelectorAll(`[selection-group='${category}']`);
     divs.forEach((div) => {
-        if (div.getAttribute("visible") == "true")
+        if (div.style.display === "none")
         {
-            div.setAttribute("visible", "false");
+            div.style.display = "block";
         }
         else
         {
-            div.setAttribute("visible", "true");
+            div.style.display = "none";
         }
     });
 }
