@@ -350,3 +350,7 @@ h1 {
     padding: 0.5em;
     cursor: pointer;
 }
+
+#sampleMessage{
+    display: none;
+}

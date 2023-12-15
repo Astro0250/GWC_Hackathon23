@@ -55,16 +55,16 @@ friendElements.forEach((element) => {
   element.addEventListener('click', (event) => {
     console.log("clicked");
     document.getElementById('chatOverlay').style.display = "flex";
-    openChat(event.target.id);
+    openChat(event.target.getElementsByClassName('username')[0].innerHTML);
   });
 });
 let currentChat = null;
 let chatID = null;
 function openChat(friendID) {
-  if (friendID.localeCompare(currentUser.uid) >= 0) {
-    chatID = friendID + currentUser.uid;
+  if (friendID.localeCompare(currentUser.displayName) >= 0) {
+    chatID = friendID + currentUser.displayName;
   } else {
-    chatID = currentUser.uid + friendID;
+    chatID = currentUser.displayName + friendID;
   }
   let chat = null;
   const chatRef = collection(db, 'chats');
@@ -73,7 +73,6 @@ function openChat(friendID) {
       if (doc.id == chatID) {
         chat = doc.data();
         currentChat = chat;
-        console.log(chat);
         setMessages(chat);
       }
     });
@@ -94,7 +93,6 @@ function openChat(friendID) {
           if (doc.id == chatID) {
             chat = doc.data();
             currentChat = chat;
-            console.log(chat['messages']);
             setMessages(chat);
           }
         });
@@ -107,8 +105,8 @@ function setMessages(chat) {
   let sample = document.querySelector("#sampleMessage");
   messages.forEach((post) => {
     let clone = sample.cloneNode(true);
-    clone.getElementsByClassName('content')[0].getElementsByClassName('username')[0].innerHTML = post['owner'];
-    clone.getElementsByClassName('content')[0].getElementsByClassName('message-content')[0].innerHTML = post['content'];
+    clone.getElementsByClassName('content')[0].getElementsByClassName('username')[0].innerHTML = post['message']['owner'];
+    clone.getElementsByClassName('content')[0].getElementsByClassName('message-content')[0].innerHTML = post['message']['content'];
     clone.style.display = "static";
     clone.id = "not-sample";
     document.getElementById("messages").append(clone);
@@ -119,10 +117,20 @@ document.getElementById('sendBtn').addEventListener('click', (e) => {
   let messagee = document.getElementById('messageInput').value;
   document.getElementById('messageInput').value = "";
   let messageElement = document.createElement('div');
-  messageElement.classList.add('message');
-  messageElement.innerHTML = messagee;
+  messageElement.setAttribute("class", "message");
+  let messageContent = document.createElement('div');
+  messageContent.setAttribute("class", "content");
+  let messageUsername = document.createElement('div');
+  messageUsername.setAttribute("class", "username");
+  messageUsername.innerHTML = currentUser.displayName;
+  let messageText = document.createElement('div');
+  messageText.setAttribute("class", "message-content");
+  messageText.innerHTML = messagee;
+  messageContent.appendChild(messageUsername);
+  messageContent.appendChild(messageText);
+  messageElement.appendChild(messageContent);
   document.getElementById('messages').appendChild(messageElement);
-  
+
   currentChat['messages'].push({
     message: {
       content: messagee,

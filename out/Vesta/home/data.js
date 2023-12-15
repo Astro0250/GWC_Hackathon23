@@ -31,7 +31,6 @@ function getPosts() {
                 posts.push(doc.data());
             });
             sortPostsByDate(posts);
-            console.log(posts);
             setPosts(posts);
         })
         .catch((error) => {
