@@ -92,6 +92,7 @@ function openChat(friendID) {
   });
 }
 function setMessages(chat) {
+  console.log(chat);
   let messages = chat['messages'];
   let sample = document.querySelector("#sampleMessage");
   messages.forEach((post) => {
@@ -154,13 +155,14 @@ async function addUsers() {
     div.getElementsByClassName("pfp")[0].getElementsByClassName("pfpimg")[0].setAttribute("src", users.get(friend).profileurl);
     document.getElementById("friend-list").appendChild(div);
   });
-  const friendElements = document.querySelectorAll('.friend');
-  console.log("friends:" + friendElements.entries());
-  friendElements.forEach((element) => {
+  const friendElements = document.getElementsByClassName('friend');
+  console.log("friends:" + friendElements);
+  Array.from(friendElements).forEach((element) => {
     element.addEventListener('click', (event) => {
       console.log("clicked");
       document.getElementById('chatOverlay').style.display = "flex";
-      openChat(event.target.getElementsByClassName('username')[0].innerHTML);
+      console.log(event.currentTarget); // Changed from event.target
+      openChat(event.currentTarget.getElementsByClassName('username')[0].innerHTML); // Changed from event.target
     });
   });
 }
